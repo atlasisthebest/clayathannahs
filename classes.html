@@ -160,7 +160,7 @@
                         <li>→ Sundays, 9-12 PM</li>
                     </ul>
                 </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button class="add-to-cart-btn" onclick="addToCart('Intro to Wheel-throwing (Adults)', 365)">Add to Cart</button>
             </div>
             <div class="class-card">
                 <div class="class-header">
@@ -173,7 +173,7 @@
                     </div>
                     <div class="class-price">$150</div>
                 </div>
-                <p style="color: #666; margin-bottom: 1rem;">Full access to studio equipment, clay, glazes, firings, and 1:5 ratio instruction. Perfect for young children new to the potter's wheel.</p>
+                <p style="color: #666; margin-bottom: 1rem;">Playful clay exploration through building with hands to strengthen fine motor skills while discovering the predictable physics of gravity through stacking, shaping, and balance. Guided projects encourage sensory play, decision-making, and following multi-step goals as young artists turn their ideas into finished creations.</p>
                 <div class="class-details">
                     <div class="detail-item">
                         <span class="detail-label">Duration</span>
@@ -192,7 +192,7 @@
                         None
                     </div>
                 </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button class="add-to-cart-btn" onclick="addToCart('Clay Exploration (Ages 4-6)', 150)">Add to Cart</button>
             </div>
             <div class="class-card">
                 <div class="class-header">
@@ -224,7 +224,7 @@
                         None
                     </div>
                 </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button class="add-to-cart-btn" onclick="addToCart('Intro to Wheel-throwing (Ages 7-12)', 365)">Add to Cart</button>
             </div>
             <div class="class-card">
                 <div class="class-header">
@@ -256,7 +256,7 @@
                         None
                     </div>
                 </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button class="add-to-cart-btn" onclick="addToCart('Intro to Wheel-throwing (Ages 13-17)', 365)">Add to Cart</button>
             </div>
             <div class="class-card">
                 <div class="class-header">
@@ -288,7 +288,7 @@
                         Intro to Wheel-throwing
                     </div>
                 </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button class="add-to-cart-btn" onclick="addToCart('Early Intermediate Wheel-throwing (Adults)', 365)">Add to Cart</button>
             </div>
             <div class="class-card">
                 <div class="class-header">
@@ -320,7 +320,7 @@
                         Early Intermediate Wheel-throwing
                     </div>
                 </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button class="add-to-cart-btn" onclick="addToCart('Intermediate / Advanced Wheel-throwing (Adults)', 365)">Add to Cart</button>
             </div>
             <!-- Link to Workshops -->
             <div style="background: #f0f0f0; padding: 3rem 2rem; border-radius: 4px; margin: 4rem 0; text-align: center;">
@@ -387,7 +387,7 @@
                         Intro to Wheel-throwing
                     </div>
                 </div>
-                <button class="add-to-cart-btn">Add to Cart</button>
+                <button class="add-to-cart-btn" onclick="addToCart('Studio Trial', 50)">Add to Cart</button>
             </div>
             <div class="contact-info" style="margin-top: 4rem;">
             <div style="max-width: 800px; margin: 4rem auto; padding: 2rem; background: #fafafa; border-radius: 4px; border: 1px solid #e8e8e8;">
@@ -589,6 +589,81 @@ function handleContactSubmit(event) {
                     navMenu.classList.remove('active');
                 });
             });
+        }
+    </script>
+
+    <script>
+        // Initialize cart from localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function addToCart(name, price) {
+            // Check if item already exists in cart
+            const existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+
+            // Save to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Show feedback
+            alert(`${name} added to cart!`);
+        }
+
+        function displayCart() {
+            const cartItemsDiv = document.getElementById('cartItems');
+            const cartTotalDiv = document.getElementById('cartTotal');
+            const totalAmountSpan = document.getElementById('totalAmount');
+
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p class="cart-empty">Your cart is empty</p>';
+                cartTotalDiv.style.display = 'none';
+                return;
+            }
+
+            let total = 0;
+            let html = '';
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                html += `
+                    <div class="cart-item">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">
+                            $${item.price} × ${item.quantity} = $${itemTotal}
+                        </div>
+                        <button onclick="removeFromCart(${index})" style="margin-top: 0.5rem; color: #c00; background: none; border: none; cursor: pointer; font-size: 0.9rem;">Remove</button>
+                    </div>
+                `;
+            });
+
+            cartItemsDiv.innerHTML = html;
+            totalAmountSpan.textContent = `$${total}`;
+            cartTotalDiv.style.display = 'block';
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            alert('Checkout functionality coming soon! Please contact me at clayathannahs@gmail.com or call 847-525-8688 to complete your purchase.');
         }
     </script>
     </div>

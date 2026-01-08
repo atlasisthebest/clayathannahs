@@ -241,8 +241,8 @@
             const form = event.target;
             const amount = parseFloat(form.amount.value).toFixed(2);
 
-            // In a real implementation, this would add to cart
-            alert(`Thank you! $${amount} contribution to the Studio Grant has been added to your cart.`);
+            // Add contribution to cart
+            addToCart(`Studio Grant Contribution`, parseFloat(amount));
 
             // Close modal and reset form
             closeContributeModal();
@@ -279,6 +279,81 @@
                     navMenu.classList.remove('active');
                 });
             });
+        }
+    </script>
+
+    <script>
+        // Initialize cart from localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function addToCart(name, price) {
+            // Check if item already exists in cart
+            const existingItem = cart.find(item => item.name === name);
+
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    quantity: 1
+                });
+            }
+
+            // Save to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Show feedback
+            alert(`${name} added to cart!`);
+        }
+
+        function displayCart() {
+            const cartItemsDiv = document.getElementById('cartItems');
+            const cartTotalDiv = document.getElementById('cartTotal');
+            const totalAmountSpan = document.getElementById('totalAmount');
+
+            if (cart.length === 0) {
+                cartItemsDiv.innerHTML = '<p class="cart-empty">Your cart is empty</p>';
+                cartTotalDiv.style.display = 'none';
+                return;
+            }
+
+            let total = 0;
+            let html = '';
+
+            cart.forEach((item, index) => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+
+                html += `
+                    <div class="cart-item">
+                        <div class="cart-item-name">${item.name}</div>
+                        <div class="cart-item-price">
+                            $${item.price} × ${item.quantity} = $${itemTotal}
+                        </div>
+                        <button onclick="removeFromCart(${index})" style="margin-top: 0.5rem; color: #c00; background: none; border: none; cursor: pointer; font-size: 0.9rem;">Remove</button>
+                    </div>
+                `;
+            });
+
+            cartItemsDiv.innerHTML = html;
+            totalAmountSpan.textContent = `$${total}`;
+            cartTotalDiv.style.display = 'block';
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            displayCart();
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            alert('Checkout functionality coming soon! Please contact me at clayathannahs@gmail.com or call 847-525-8688 to complete your purchase.');
         }
     </script>
 </body>
