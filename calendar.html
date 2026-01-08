@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar - Clay at Hannah's</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 1px;
+            background: #e8e8e8;
+            border: 1px solid #e8e8e8;
+            margin: 2rem 0;
+        }
+        .day-header {
+            background: #2c2c2c;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .day-cell {
+            background: white;
+            min-height: 120px;
+            padding: 0.8rem;
+        }
+        .day-cell.inactive {
+            background: #fafafa;
+        }
+        .schedule-item {
+            background: #f0f0f0;
+            padding: 0.5rem;
+            margin: 0.3rem 0;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            border-left: 3px solid #2c2c2c;
+        }
+        .schedule-item.class {
+            border-left-color: #4a7ba7;
+            background: #e3f2fd;
+        }
+        .schedule-time {
+            font-weight: 600;
+            color: #2c2c2c;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+        .event-card {
+            background: #fafafa;
+            border: 1px solid #e8e8e8;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .event-date-badge {
+            display: inline-block;
+            background: #2c2c2c;
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+        .studio-opening {
+            position: relative;
+            transition: all 0.4s ease;
+            overflow: visible;
+        }
+        .studio-opening:hover {
+            transform: scale(1.1) !important;
+            box-shadow: 0 8px 40px rgba(255, 200, 220, 0.4), 0 0 20px rgba(200, 220, 255, 0.3) !important;
+            border-color: #FFE4E1 !important;
+            background: linear-gradient(135deg, #FFF0F5 0%, #F0F8FF 25%, #FFFACD 50%, #F0FFF0 75%, #FFF5EE 100%) !important;
+            animation: celebrate 0.6s ease-in-out;
+        }
+        @keyframes celebrate {
+            0%, 100% {
+                transform: scale(1.1) rotate(0deg);
+            }
+            25% {
+                transform: scale(1.12) rotate(1deg);
+            }
+            50% {
+                transform: scale(1.11) rotate(-1deg);
+            }
+            75% {
+                transform: scale(1.12) rotate(1deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Clay at Hannah's</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="events.html">Community Events</a></li>
+                <li><a href="calendar.html" class="active">Calendar</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <!-- Weekly Class Schedule -->
+        <section class="section">
+            <h2 style="margin-bottom: 2rem;">Weekly Class Schedule</h2>
+            <div class="calendar-grid">
+                <div class="day-header">Monday</div>
+                <div class="day-header">Tuesday</div>
+                <div class="day-header">Wednesday</div>
+                <div class="day-header">Thursday</div>
+                <div class="day-header">Friday</div>
+                <div class="day-header">Saturday</div>
+                <div class="day-header">Sunday</div>
+                <div class="day-cell inactive">
+                    <div class="schedule-item class">
+                        <span class="schedule-time">5:30-8:30 PM</span>
+                        Early Intermediate Wheel-throwing
+                    </div>
+                </div>
+                <div class="day-cell">
+                    <div class="schedule-item class">
+                        <span class="schedule-time">5:30-8:30 PM</span>
+                        Intro to Wheel-throwing
+                    </div>
+                </div>
+                <div class="day-cell">
+                    <div class="schedule-item class">
+                        <span class="schedule-time">9:00 AM-12:00 PM</span>
+                        Intermediate/Advanced Wheel-throwing
+                    </div>
+                    <div class="schedule-item class">
+                        <span class="schedule-time">5:30-8:30 PM</span>
+                        Intro to Wheel-throwing
+                    </div>
+                </div>
+                <div class="day-cell">
+                    <div class="schedule-item class">
+                        <span class="schedule-time">5:30-8:30 PM</span>
+                        Intro to Wheel-throwing
+                    </div>
+                </div>
+                <div class="day-cell">
+                    <div class="schedule-item">
+                        <span class="schedule-time">6:00-8:00 PM</span>
+                        Workshop
+                    </div>
+                </div>
+                <div class="day-cell">
+                    <div class="schedule-item class">
+                        <span class="schedule-time">9:00 AM-12:00 PM</span>
+                        Intro to Wheel-throwing
+                    </div>
+                    <div class="schedule-item">
+                        <span class="schedule-time">6:00-8:00 PM</span>
+                        Workshop
+                    </div>
+                </div>
+                <div class="day-cell">
+                    <div class="schedule-item class">
+                        <span class="schedule-time">9:00 AM-12:00 PM</span>
+                        Intro to Wheel-throwing
+                    </div>
+                </div>
+            </div>
+            <p style="text-align: center; color: #666; margin-top: 1rem;">
+                <a href="classes.html" style="color: #2c2c2c; font-weight: 600; text-decoration: underline;">View class details and register →</a>
+            </p>
+        </section>
+        <!-- Upcoming Events -->
+        <section class="section">
+            <h2 style="margin-bottom: 2rem;">Upcoming Events</h2>
+            <div class="event-card studio-opening">
+                <span class="event-date-badge">TBD</span>
+                <h3 style="font-size: 1.4rem; margin-bottom: 0.8rem; color: #2c2c2c;">Studio Opening!</h3>
+                <p style="color: #666; line-height: 1.8;">Join me for our studio opening celebration! Hannah will demonstrate closed-lidded jars on the wheel. Browse our custom designed bat system and bat stickers, along with Clay at Hannah's merch available for sale.</p>
+                <p style="margin-top: 0.8rem;"><strong>10% discount for all registrations on opening day!</strong></p>
+                <p style="color: #666;">Free and open to the public</p>
+            </div>
+            <div class="event-card">
+                <span class="event-date-badge">TBD</span>
+                <h3 style="font-size: 1.4rem; margin-bottom: 0.8rem; color: #2c2c2c;">Tool Tour with DiamondCore Tools</h3>
+                <p style="color: #666; line-height: 1.8;">Explore the innovative DiamondCore Tools and learn how to use them to enhance your pottery work. Hands-on demonstrations and techniques included.</p>
+                <p style="margin-top: 0.8rem; color: #666;"><strong>Cost:</strong> $25 for members • $50 for non-members</p>
+            </div>
+            <div class="event-card">
+                <span class="event-date-badge">TBD</span>
+                <h3 style="font-size: 1.4rem; margin-bottom: 0.8rem; color: #2c2c2c;">Potter's Social Hour</h3>
+                <p style="color: #666; line-height: 1.8;">Join pottery enthusiasts for a cozy night of clay conversation, tool talk, and community building.</p>
+                <p style="margin-top: 0.8rem; color: #666;"><strong>Cost:</strong> Free for members • $10 for non-members</p>
+            </div>
+            <div class="event-card">
+                <span class="event-date-badge">Saturday, December 19 • 10:00 AM-5:00 PM</span>
+                <h3 style="font-size: 1.4rem; margin-bottom: 0.8rem; color: #2c2c2c;">Annual Pottery Sale</h3>
+                <p style="color: #666; line-height: 1.8;">Our biggest event of the year! Browse and purchase pottery from studio members and instructors, with proceeds supporting our community scholarship fund. Special discounts throughout the day.</p>
+                <p style="margin-top: 0.8rem; color: #666;"><strong>Cost:</strong> Free admission</p>
+            </div>
+            <div class="event-card">
+                <span class="event-date-badge">Saturday, November 21, 2026</span>
+                <h3 style="font-size: 1.4rem; margin-bottom: 0.8rem; color: #2c2c2c;">Empty Bowls</h3>
+                <p style="color: #666; line-height: 1.8;">Join me for our annual Empty Bowls event featuring food vendors and handmade ceramic bowls to support our community.</p>
+                <p style="margin-top: 0.8rem; color: #666;"><strong>Cost:</strong> $10</p>
+            </div>
+            <div class="event-card">
+                <span class="event-date-badge">Saturday, December 26, 2026</span>
+                <h3 style="font-size: 1.4rem; margin-bottom: 0.8rem; color: #2c2c2c;">Seconds Sale</h3>
+                <p style="color: #666; line-height: 1.8;">Studio members offer their slightly imperfect pieces at discounted prices. A great opportunity to find unique pottery at affordable rates!</p>
+                <p style="margin-top: 0.8rem; color: #666;">Open to the public</p>
+            </div>
+            <p style="text-align: center; color: #666; margin-top: 2rem;">
+                <a href="events.html" style="color: #2c2c2c; font-weight: 600; text-decoration: underline;">View all community events →</a>
+            </p>
+        </section>
+        <!-- Regular Programs -->
+        <section class="section">
+            <h2 style="margin-bottom: 2rem;">Regular Community Programs</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Quarterly Clay Testing</h3>
+                    <p>Experiment with different clay bodies and share results with the community. Make up to 10 test tiles from local clays—these will be fired and ready for your own glaze testing.</p>
+                    <p class="price">Free for members • $15 for non-members</p>
+                </div>
+                <div class="card">
+                    <h3>Quarterly Glaze Testing</h3>
+                    <p>Experiment with new glazes, share results, and expand your knowledge of surface decoration. Glaze up to 10 test tiles or 1 kiln god.</p>
+                    <p class="price">Free for members • $20 for non-members</p>
+                </div>
+                <div class="card">
+                    <h3>Quarterly Studio Grant</h3>
+                    <p>In an effort to make pottery more accessible to individuals experiencing financial hardship, donations to the grant and sales with 100% proceeds going toward the grant will fully sponsor one student's participation in a four-week wheel-throwing class rotation.</p>
+                </div>
+            </div>
+        </section>
+        <!-- Workshops -->
+        <section class="section">
+            <h2 style="margin-bottom: 2rem;">Workshops</h2>
+            <p style="text-align: center; max-width: 750px; margin: 0 auto 2rem; color: #666; line-height: 1.8;">
+                She offers a variety of single-session workshops including technique workshops (vase, teacup, coffee mug, bowls, lidded jars), special experience workshops (date night, baby handprints), and seasonal workshops (Chinese New Year, Mother's/Father's Day, holiday-themed). Workshop schedules are posted regularly—<span class="contact-link" onclick="openContactModal()">contact me</span> for upcoming dates!
+            </p>
+            <div style="text-align: center;">
+                <a href="workshops.html" class="cta-button" style="background-color: #2c2c2c; color: white; border-color: #2c2c2c; display: inline-block; padding: 0.8rem 2rem; text-decoration: none; border-radius: 2px;">View All Workshops</a>
+<!-- Contact Modal CSS -->
+<style>
+.contact-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.contact-modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 4px;
+    max-width: 500px;
+    position: relative;
+}
+.close-contact-modal {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+.close-contact-modal:hover {
+    color: #2c2c2c;
+}
+.contact-form-group {
+    margin-bottom: 1rem;
+}
+.contact-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c2c2c;
+    font-weight: 600;
+}
+.contact-form-group input,
+.contact-form-group textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+    font-size: 0.95rem;
+    font-family: inherit;
+}
+.contact-form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+.contact-submit-btn {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+.contact-submit-btn:hover {
+    background-color: #444;
+}
+.contact-link {
+    color: #2c2c2c;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 600;
+}
+.contact-link:hover {
+    color: #666;
+}
+</style>
+
+<!-- Contact Modal HTML -->
+<div id="contactModal" class="contact-modal">
+    <div class="contact-modal-content">
+        <span class="close-contact-modal" onclick="closeContactModal()">&times;</span>
+        <h2 style="margin-bottom: 1rem; color: #2c2c2c;">Contact Me</h2>
+        <p style="color: #666; margin-bottom: 1.5rem;">Fill out the form below and she'll get back to you soon!</p>
+        <form id="contactForm" onsubmit="handleContactSubmit(event)">
+            <div class="contact-form-group">
+                <label for="contact_firstName">First Name *</label>
+                <input type="text" id="contact_firstName" name="firstName" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_lastName">Last Name *</label>
+                <input type="text" id="contact_lastName" name="lastName" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_phone">Phone *</label>
+                <input type="tel" id="contact_phone" name="phone" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_email">Email *</label>
+                <input type="email" id="contact_email" name="email" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_message">Message *</label>
+                <textarea id="contact_message" name="message" required placeholder="Tell me what you're interested in..."></textarea>
+            </div>
+            <button type="submit" class="contact-submit-btn">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<!-- Contact Modal JavaScript -->
+<script>
+function openContactModal() {
+    document.getElementById('contactModal').style.display = 'block';
+}
+
+function closeContactModal() {
+    document.getElementById('contactModal').style.display = 'none';
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('contactModal');
+    if (event.target == modal) {
+        closeContactModal();
+    }
+}
+
+function handleContactSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
+    const phone = form.phone.value;
+    const email = form.email.value;
+    const message = form.message.value;
+    
+    // Create mailto link with pre-filled information
+    const subject = encodeURIComponent('Contact Form Submission from ' + firstName + ' ' + lastName);
+    const body = encodeURIComponent(
+        'First Name: ' + firstName + '\n' +
+        'Last Name: ' + lastName + '\n' +
+        'Phone: ' + phone + '\n' +
+        'Email: ' + email + '\n\n' +
+        'Message:\n' + message
+    );
+    
+    const mailtoLink = 'mailto:clayathannahs@gmail.com?subject=' + subject + '&body=' + body;
+    
+    // Open user's email client
+    window.location.href = mailtoLink;
+    
+    // Show confirmation
+    alert('Opening your email client... Please send the pre-filled email to complete your inquiry.');
+    
+    // Close modal and reset form
+    closeContactModal();
+    form.reset();
+}
+</script>
+            </div>
+        </section>
+        <!-- Contact -->
+        <section class="section">
+            <div class="contact-info">
+                <h3 style="text-align: center; margin-bottom: 1.5rem;">Questions About Scheduling?</h3>
+                <p style="text-align: center; color: #666;"><span class="contact-link" onclick="openContactModal()">Contact me</span> to learn more about classes, workshops, and events.</p>
+                <p style="text-align: center; margin-top: 1rem;"><strong>Phone:</strong> 847-525-8688 | <strong>Email:</strong> clayathannahs@gmail.com</p>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; padding: 2rem;">
+            <div>
+                <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600; color: white;">LOCATION</h4>
+                <p style="color: white; font-size: 0.9rem; line-height: 1.6;">1255 Coast Blvd<br>San Diego, CA</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600; color: white;">CONTACT</h4>
+                <p style="color: white; font-size: 0.9rem; line-height: 1.6;">
+                    <a href="mailto:clayathannahs@gmail.com" style="color: white; text-decoration: none;">clayathannahs@gmail.com</a>
+                </p>
+                <a href="https://www.instagram.com/clayathannahs" target="_blank" style="display: inline-flex; align-items: center; gap: 0.4rem; color: white; text-decoration: none; font-size: 0.9rem; margin-top: 0.5rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="white"/>
+                    </svg>
+                    @clayathannahs
+                </a>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600; color: white;">HOURS</h4>
+                <p style="color: white; font-size: 0.9rem; line-height: 1.6;">Tuesday-Saturday<br>9am-9pm<br><a href="calendar.html" style="color: white; text-decoration: underline;">See calendar for additional hours</a></p>
+            </div>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.3); padding: 1.5rem 2rem; text-align: center;">
+            <p style="color: rgba(255,255,255,0.8); font-size: 0.85rem;">&copy; 2026 Clay at Hannah's. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

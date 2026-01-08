@@ -1,0 +1,160 @@
+<!-- Contact Modal CSS -->
+<style>
+.contact-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.contact-modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 4px;
+    max-width: 500px;
+    position: relative;
+}
+.close-contact-modal {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+.close-contact-modal:hover {
+    color: #2c2c2c;
+}
+.contact-form-group {
+    margin-bottom: 1rem;
+}
+.contact-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c2c2c;
+    font-weight: 600;
+}
+.contact-form-group input,
+.contact-form-group textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+    font-size: 0.95rem;
+    font-family: inherit;
+}
+.contact-form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+.contact-submit-btn {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+.contact-submit-btn:hover {
+    background-color: #444;
+}
+.contact-link {
+    color: #2c2c2c;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 600;
+}
+.contact-link:hover {
+    color: #666;
+}
+</style>
+
+<!-- Contact Modal HTML -->
+<div id="contactModal" class="contact-modal">
+    <div class="contact-modal-content">
+        <span class="close-contact-modal" onclick="closeContactModal()">&times;</span>
+        <h2 style="margin-bottom: 1rem; color: #2c2c2c;">Contact Me</h2>
+        <p style="color: #666; margin-bottom: 1.5rem;">Fill out the form below and she'll get back to you soon!</p>
+        <form id="contactForm" onsubmit="handleContactSubmit(event)">
+            <div class="contact-form-group">
+                <label for="contact_firstName">First Name *</label>
+                <input type="text" id="contact_firstName" name="firstName" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_lastName">Last Name *</label>
+                <input type="text" id="contact_lastName" name="lastName" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_phone">Phone *</label>
+                <input type="tel" id="contact_phone" name="phone" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_email">Email *</label>
+                <input type="email" id="contact_email" name="email" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_message">Message *</label>
+                <textarea id="contact_message" name="message" required placeholder="Tell me what you're interested in..."></textarea>
+            </div>
+            <button type="submit" class="contact-submit-btn">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<!-- Contact Modal JavaScript -->
+<script>
+function openContactModal() {
+    document.getElementById('contactModal').style.display = 'block';
+}
+
+function closeContactModal() {
+    document.getElementById('contactModal').style.display = 'none';
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('contactModal');
+    if (event.target == modal) {
+        closeContactModal();
+    }
+}
+
+function handleContactSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
+    const phone = form.phone.value;
+    const email = form.email.value;
+    const message = form.message.value;
+    
+    // Create mailto link with pre-filled information
+    const subject = encodeURIComponent('Contact Form Submission from ' + firstName + ' ' + lastName);
+    const body = encodeURIComponent(
+        'First Name: ' + firstName + '\n' +
+        'Last Name: ' + lastName + '\n' +
+        'Phone: ' + phone + '\n' +
+        'Email: ' + email + '\n\n' +
+        'Message:\n' + message
+    );
+    
+    const mailtoLink = 'mailto:clayathannahs@gmail.com?subject=' + subject + '&body=' + body;
+    
+    // Open user's email client
+    window.location.href = mailtoLink;
+    
+    // Show confirmation
+    alert('Opening your email client... Please send the pre-filled email to complete your inquiry.');
+    
+    // Close modal and reset form
+    closeContactModal();
+    form.reset();
+}
+</script>

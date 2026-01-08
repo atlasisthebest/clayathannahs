@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshops - Clay at Hannah's</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .class-card {
+            background: #fafafa;
+            padding: 2rem;
+            border-radius: 4px;
+            border: 1px solid #e8e8e8;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+        .class-card:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .class-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #2c2c2c;
+            margin: 0;
+        }
+        .detail-item {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        .detail-label {
+            font-weight: 600;
+            color: #2c2c2c;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .add-to-cart-btn {
+            background-color: #2c2c2c;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: 2px solid #2c2c2c;
+            border-radius: 2px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .add-to-cart-btn:hover {
+            background-color: transparent;
+            color: #2c2c2c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Clay at Hannah's</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="membership.html">Membership</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="workshops.html" class="active">Workshops</a></li>
+                <li><a href="events.html">Community Events</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <section class="section">
+            <h2>Workshops</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.05rem; color: #666;">
+                Single-session workshops where you create and complete a specific piece. Perfect for gift-giving, special occasions, or trying pottery without a long-term commitment.
+            </p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem;">
+                <div style="background: #e8e8e8; border-radius: 4px; padding: 6rem 4rem; flex: 1; max-width: 500px; min-width: 300px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 1.1rem; text-align: center;">
+                    Photo Coming Soon
+                </div>
+                <div style="background: #e8e8e8; border-radius: 4px; padding: 6rem 4rem; flex: 1; max-width: 500px; min-width: 300px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 1.1rem; text-align: center;">
+                    Photo Coming Soon
+                </div>
+            </div>
+            <!-- Technique & Project Workshops -->
+            <h3 style="font-size: 2rem; margin: 3rem 0 2rem; font-weight: 400; color: #2c2c2c;">Technique & Project Workshops</h3>
+            <p style="color: #666; margin-bottom: 2rem; font-size: 0.95rem;">All workshops include glazing and firing. Create functional pottery in a single session.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Vase Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Create a beautiful vase. 1 piece glazed and fired.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2.5 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Level:</span> All Levels</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Teacup Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Craft a custom teacup. 1 piece glazed and fired.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2.5 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Level:</span> All Levels</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Coffee Mug Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Make your perfect coffee mug. 1 piece glazed and fired.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2.5 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Level:</span> All Levels</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Mixing Bowl Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Create a functional mixing bowl. 1 piece glazed and fired.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2.5 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Level:</span> All Levels</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Serving Bowl Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Make a beautiful serving bowl. 1 piece glazed and fired.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2.5 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Level:</span> All Levels</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Berry Bowl Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Create a berry bowl with drainage. 1 piece glazed and fired.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2.5 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Level:</span> All Levels</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Garlic Plate Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Make a specialized garlic grater plate. 1 piece glazed and fired.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2.5 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Level:</span> All Levels</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Plant Pot Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Design a custom plant pot. 1 piece glazed and fired.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2.5 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Level:</span> All Levels</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">2-Part Lidded Jar Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Create a jar with a fitted lid. 1 piece glazed and fired.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2.5 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Level:</span> All Levels</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Closed-Form Lidded Jar Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Advanced lidded jar technique. 1 piece glazed and fired.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2.5 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Level:</span> All Levels</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Decorating Tea Cups Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Decorate pre-made tea cups. Perfect for beginners!</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $100</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Max Students:</span> 10</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Kiln God Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Mix wheel-throwing and hand-building to create a kiln god. 1 piece fired.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2.5 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Level:</span> All Levels</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+            </div>
+            <!-- Special Workshops -->
+            <h3 style="font-size: 2rem; margin: 4rem 0 2rem; font-weight: 400; color: #2c2c2c;">Special Experience Workshops</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Date Night Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Create together! Perfect for couples. 1 piece per person glazed and fired.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $80 per person</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2.5 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Max Students:</span> 5</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Baby Handprint & Footprint Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Capture precious memories. Pre-prepared piece, glazed and fired.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $100</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Max Students:</span> 5 adults (not including baby)</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Speed-Dating & Pottery Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Meet new people while creating! Dating activity - work not kept.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $35</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2.5 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Max Students:</span> 10</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Guest Artist Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Learn from visiting artists. Focus varies by artist. Special occasion.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> $150</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> 2 Hours</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Max Students:</span> 5</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                </div>
+                <div class="class-card">
+                    <h3 class="class-title" style="font-size: 1.2rem; margin-bottom: 1rem;">Private Workshop</h3>
+                    <p style="color: #666; font-size: 0.9rem; margin-bottom: 1rem;">Perfect for bachelor/bachelorette parties, birthday celebrations, team-building events, or family activities. Schedule with Hannah to customize your private pottery experience.</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Price:</span> Contact for pricing</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Duration:</span> Customizable</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <div class="detail-item" style="margin-bottom: 1rem;"><span class="detail-label">Max Students:</span> Varies</div>
+                    <button class="add-to-cart-btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Add to Cart</button>
+                    <button class="add-to-cart-btn" onclick="openContactModal()" style="padding: 0.6rem 1.5rem; font-size: 0.9rem; margin-left: 0.5rem;">Contact</button>
+                </div>
+            </div>
+            <!-- Seasonal Workshops -->
+            <h3 style="font-size: 2rem; margin: 4rem 0 2rem; font-weight: 400; color: #2c2c2c;">Seasonal Workshops</h3>
+            <p style="color: #666; margin-bottom: 2rem; font-size: 0.95rem;">Special seasonal workshops throughout the year. All workshops include 1 piece glazed and fired.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="class-card" style="padding: 1.5rem;">
+                    <h3 class="class-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Chinese New Year Lantern Workshop</h3>
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.8rem;">January/February</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <button class="add-to-cart-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Add to Cart</button>
+                </div>
+                <div class="class-card" style="padding: 1.5rem;">
+                    <h3 class="class-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Zodiac Clay Figure Workshop</h3>
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.8rem;">January/February</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <button class="add-to-cart-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Add to Cart</button>
+                </div>
+                <div class="class-card" style="padding: 1.5rem;">
+                    <h3 class="class-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Couple's Pottery Night Workshop</h3>
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.8rem;">February</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <button class="add-to-cart-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Add to Cart</button>
+                </div>
+                <div class="class-card" style="padding: 1.5rem;">
+                    <h3 class="class-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Spring Plant Pot Workshop</h3>
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.8rem;">April</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <button class="add-to-cart-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Add to Cart</button>
+                </div>
+                <div class="class-card" style="padding: 1.5rem;">
+                    <h3 class="class-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Mother's Day Vase Workshop</h3>
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.8rem;">May</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <button class="add-to-cart-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Add to Cart</button>
+                </div>
+                <div class="class-card" style="padding: 1.5rem;">
+                    <h3 class="class-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Father's Day Vase Workshop</h3>
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.8rem;">June</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <button class="add-to-cart-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Add to Cart</button>
+                </div>
+                <div class="class-card" style="padding: 1.5rem;">
+                    <h3 class="class-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Best Friend Mugs Workshop</h3>
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.8rem;">August</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <button class="add-to-cart-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Add to Cart</button>
+                </div>
+                <div class="class-card" style="padding: 1.5rem;">
+                    <h3 class="class-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Harvest Bowl Workshop</h3>
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.8rem;">September</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <button class="add-to-cart-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Add to Cart</button>
+                </div>
+                <div class="class-card" style="padding: 1.5rem;">
+                    <h3 class="class-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Pumpkin Workshop</h3>
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.8rem;">October</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <button class="add-to-cart-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Add to Cart</button>
+                </div>
+                <div class="class-card" style="padding: 1.5rem;">
+                    <h3 class="class-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Candle Holder Workshop</h3>
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.8rem;">October</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <button class="add-to-cart-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Add to Cart</button>
+                </div>
+                <div class="class-card" style="padding: 1.5rem;">
+                    <h3 class="class-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Pie Platter Workshop</h3>
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.8rem;">November</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <button class="add-to-cart-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Add to Cart</button>
+                </div>
+                <div class="class-card" style="padding: 1.5rem;">
+                    <h3 class="class-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Christmas Tree Workshop</h3>
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.8rem;">December</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <button class="add-to-cart-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Add to Cart</button>
+                </div>
+                <div class="class-card" style="padding: 1.5rem;">
+                    <h3 class="class-title" style="font-size: 1.1rem; margin-bottom: 0.5rem;">Menorah Workshop</h3>
+                    <p style="color: #888; font-size: 0.85rem; margin-bottom: 0.8rem;">December</p>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Price:</span> $80</div>
+                    <div class="detail-item" style="margin-bottom: 0.5rem; font-size: 0.9rem;"><span class="detail-label">Date:</span> TBD</div>
+                    <button class="add-to-cart-btn" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Add to Cart</button>
+                </div>
+            </div>
+            <div style="max-width: 800px; margin: 4rem auto; padding: 2rem; background: #fafafa; border-radius: 4px; border: 1px solid #e8e8e8;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: #2c2c2c;">Cancellation Policy</h3>
+                <div style="margin-bottom: 1.5rem;">
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 0.5rem;">
+                        <strong style="color: #2c2c2c;">Cancellation Policy:</strong>
+                    </p>
+                    <ul style="margin-left: 1.5rem; color: #666; line-height: 1.8;">
+                        <li>Cancel more than 14 days in advance for a full refund.</li>
+                        <li>Cancel between 7–14 days in advance for a 50% refund.</li>
+                        <li>Cancellations within 7 days of the class start date are non-refundable.</li>
+                    </ul>
+                </div>
+                <div>
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 0.5rem;">
+                        <strong style="color: #2c2c2c;">Missed Classes:</strong>
+                    </p>
+                    <p style="color: #666; line-height: 1.8;">
+                        She does not offer refunds or make-up classes. If you need to miss a class, our staff will do their best to help you catch up during the next session or open studio hours.
+                    </p>
+                </div>
+            </div>
+        </section>
+        </div>
+    </div>
+<!-- Contact Modal CSS -->
+<style>
+.contact-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.contact-modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 4px;
+    max-width: 500px;
+    position: relative;
+}
+.close-contact-modal {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+.close-contact-modal:hover {
+    color: #2c2c2c;
+}
+.contact-form-group {
+    margin-bottom: 1rem;
+}
+.contact-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c2c2c;
+    font-weight: 600;
+}
+.contact-form-group input,
+.contact-form-group textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+    font-size: 0.95rem;
+    font-family: inherit;
+}
+.contact-form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+.contact-submit-btn {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+.contact-submit-btn:hover {
+    background-color: #444;
+}
+.contact-link {
+    color: #2c2c2c;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 600;
+}
+.contact-link:hover {
+    color: #666;
+}
+</style>
+
+<!-- Contact Modal HTML -->
+<div id="contactModal" class="contact-modal">
+    <div class="contact-modal-content">
+        <span class="close-contact-modal" onclick="closeContactModal()">&times;</span>
+        <h2 style="margin-bottom: 1rem; color: #2c2c2c;">Contact Me</h2>
+        <p style="color: #666; margin-bottom: 1.5rem;">Fill out the form below and she'll get back to you soon!</p>
+        <form id="contactForm" onsubmit="handleContactSubmit(event)">
+            <div class="contact-form-group">
+                <label for="contact_firstName">First Name *</label>
+                <input type="text" id="contact_firstName" name="firstName" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_lastName">Last Name *</label>
+                <input type="text" id="contact_lastName" name="lastName" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_phone">Phone *</label>
+                <input type="tel" id="contact_phone" name="phone" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_email">Email *</label>
+                <input type="email" id="contact_email" name="email" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_message">Message *</label>
+                <textarea id="contact_message" name="message" required placeholder="Tell me what you're interested in..."></textarea>
+            </div>
+            <button type="submit" class="contact-submit-btn">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<!-- Contact Modal JavaScript -->
+<script>
+function openContactModal() {
+    document.getElementById('contactModal').style.display = 'block';
+}
+
+function closeContactModal() {
+    document.getElementById('contactModal').style.display = 'none';
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('contactModal');
+    if (event.target == modal) {
+        closeContactModal();
+    }
+}
+
+function handleContactSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
+    const phone = form.phone.value;
+    const email = form.email.value;
+    const message = form.message.value;
+    
+    // Create mailto link with pre-filled information
+    const subject = encodeURIComponent('Contact Form Submission from ' + firstName + ' ' + lastName);
+    const body = encodeURIComponent(
+        'First Name: ' + firstName + '\n' +
+        'Last Name: ' + lastName + '\n' +
+        'Phone: ' + phone + '\n' +
+        'Email: ' + email + '\n\n' +
+        'Message:\n' + message
+    );
+    
+    const mailtoLink = 'mailto:clayathannahs@gmail.com?subject=' + subject + '&body=' + body;
+    
+    // Open user's email client
+    window.location.href = mailtoLink;
+    
+    // Show confirmation
+    alert('Opening your email client... Please send the pre-filled email to complete your inquiry.');
+    
+    // Close modal and reset form
+    closeContactModal();
+    form.reset();
+}
+</script>
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; padding: 2rem;">
+            <div>
+                <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600; color: white;">LOCATION</h4>
+                <p style="color: white; font-size: 0.9rem; line-height: 1.6;">1255 Coast Blvd<br>San Diego, CA</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600; color: white;">CONTACT</h4>
+                <p style="color: white; font-size: 0.9rem; line-height: 1.6;">
+                    <a href="mailto:clayathannahs@gmail.com" style="color: white; text-decoration: none;">clayathannahs@gmail.com</a>
+                </p>
+                <a href="https://www.instagram.com/clayathannahs" target="_blank" style="display: inline-flex; align-items: center; gap: 0.4rem; color: white; text-decoration: none; font-size: 0.9rem; margin-top: 0.5rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="white"/>
+                    </svg>
+                    @clayathannahs
+                </a>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600; color: white;">HOURS</h4>
+                <p style="color: white; font-size: 0.9rem; line-height: 1.6;">Tuesday-Saturday<br>9am-9pm<br><a href="calendar.html" style="color: white; text-decoration: underline;">See calendar for additional hours</a></p>
+            </div>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.3); padding: 1.5rem 2rem; text-align: center;">
+            <p style="color: rgba(255,255,255,0.8); font-size: 0.85rem;">&copy; 2026 Clay at Hannah's. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

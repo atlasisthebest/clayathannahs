@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Membership - Clay at Hannah's</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 2rem;
+            border-radius: 4px;
+            max-width: 500px;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+        .close-modal:hover {
+            color: #2c2c2c;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c2c2c;
+            font-weight: 600;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #e8e8e8;
+            border-radius: 2px;
+            font-size: 0.95rem;
+        }
+        .submit-btn {
+            background-color: #2c2c2c;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.95rem;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        .submit-btn:hover {
+            background-color: #444;
+        }
+        .add-to-cart-btn {
+            background-color: #2c2c2c;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: 2px solid #2c2c2c;
+            border-radius: 2px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .add-to-cart-btn:hover {
+            background-color: transparent;
+            color: #2c2c2c;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Clay at Hannah's</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="membership.html" class="active">Membership</a></li>
+                <li><a href="classes.html">Classes</a></li>
+                <li><a href="workshops.html">Workshops</a></li>
+                <li><a href="events.html">Community Events</a></li>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container">
+        <section class="section">
+            <h2>Studio Membership</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.05rem; color: #666;">
+                Unlimited access. Endless creativity. A community of makers.
+            </p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem;">
+                <div style="background: #e8e8e8; border-radius: 4px; padding: 6rem 4rem; flex: 1; max-width: 500px; min-width: 300px; display: flex; align-items: center; justify-content: center; color: #999; font-size: 1.1rem; text-align: center;">
+                    Photo Coming Soon
+                </div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                <div class="class-card">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <h3 class="class-title">Studio Trial</h3>
+                            <p style="color: #666; margin-top: 0.5rem; font-size: 0.9rem;">All Levels</p>
+                        </div>
+                        <div style="font-size: 1.8rem; font-weight: 600; color: #2c2c2c;">$50</div>
+                    </div>
+                    <p style="color: #666; margin-bottom: 1rem;">Try out our studio with 12 hours of access. Perfect for testing membership before committing. Schedule with Hannah.</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; padding: 1rem 0; border-top: 1px solid #e8e8e8;">
+                        <div class="detail-item">
+                            <span class="detail-label">Duration</span>
+                            12 Hours Total
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Schedule</span>
+                            Flexible
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Prerequisites</span>
+                            Intro to Wheel-throwing
+                        </div>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                    <button class="add-to-cart-btn" onclick="openContactModal()" style="margin-left: 0.5rem;">Coordinate with Hannah</button>
+                </div>
+                <div class="class-card">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem; flex-wrap: wrap; gap: 1rem;">
+                        <div>
+                            <h3 class="class-title">Studio Membership</h3>
+                        </div>
+                        <div style="font-size: 1.8rem; font-weight: 600; color: #2c2c2c;">$395<span style="font-size: 1rem; font-weight: 400;">/month</span></div>
+                    </div>
+                    <p style="color: #666; margin-bottom: 1rem;">Unlimited studio access with professional equipment, glazes, firings, and community support. Perfect for committed makers.</p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 1.5rem 0; padding: 1rem 0; border-top: 1px solid #e8e8e8;">
+                        <div class="detail-item">
+                            <span class="detail-label">Access</span>
+                            Unlimited
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Schedule</span>
+                            Monthly Subscription
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Prerequisites</span>
+                            Intro to Wheel-throwing
+                        </div>
+                    </div>
+                    <button class="add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="contact-info" style="margin: 2rem auto; max-width: 800px;">
+                <h2 style="font-size: 2rem; margin-bottom: 2rem; text-align: center; font-weight: 400;">What's Included</h2>
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: #2c2c2c;">Unlimited Studio Access</h3>
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Access to our fully-equipped studio with natural-light and open space. Work at your own pace, day or night, with complete flexibility.
+                    </p>
+                </div>
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: #2c2c2c;">Unlimited Bisque and Glaze Firing</h3>
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Your membership includes unlimited bisque and glaze firing for all your pieces. Fire as much as you create!
+                    </p>
+                </div>
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: #2c2c2c;">Professional Equipment</h3>
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 1rem;">
+                        Work with industry-standard tools and equipment:
+                    </p>
+                    <ul style="margin-left: 1.5rem; color: #666; line-height: 1.8;">
+                        <li>Shimpo pottery wheels</li>
+                        <li>Complete tool library</li>
+                        <li>Skutt electric kiln</li>
+                    </ul>
+                </div>
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: #2c2c2c;">Access to RD Pottery Tools</h3>
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Members have access to professional RD Pottery Tools for precision work and advanced techniques.
+                    </p>
+                </div>
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: #2c2c2c;">Dedicated Storage Space</h3>
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Every member gets personal shelf storage for works in progress, greenware, and finished pieces awaiting pickup. Keep your projects safe and organized.
+                    </p>
+                </div>
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: #2c2c2c;">Member Buddy Pass</h3>
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Share the joy of pottery! Bring a friend to the studio once per month to create alongside you. It's a great way to introduce others to the craft.
+                    </p>
+                </div>
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: #2c2c2c;">Expert Instruction & Support</h3>
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Our professional instructors are available during open studio hours to answer questions, offer guidance, and help troubleshoot. Members also receive discounts on all classes and workshops.
+                    </p>
+                </div>
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: #2c2c2c;">Community & Events</h3>
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Join a vibrant community of makers. Enjoy free admission to member socials, exhibitions, and special events. Connect, share, and grow together.
+                    </p>
+                </div>
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: #2c2c2c;">Easy Access to Laguna Clay</h3>
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Easy access to Laguna Clay (mid-range clay bodies) for purchase.
+                    </p>
+                </div>
+                <div style="margin-bottom: 3rem;">
+                    <h3 style="font-size: 1.3rem; margin-bottom: 1rem; color: #2c2c2c;">Pausable Membership</h3>
+                    <p style="color: #666; line-height: 1.8; margin-bottom: 1.5rem;">
+                        Life happens. Travel, busy seasons, or creative breaks—pause your membership anytime and resume when you're ready to create again.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="section">
+            <h2 style="margin-bottom: 3rem;">Frequently Asked Questions</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div style="margin-bottom: 2.5rem;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.8rem; color: #2c2c2c;">Do I need prior experience?</h3>
+                    <p style="color: #666; line-height: 1.8;">
+                        Not at all! Members of all skill levels are welcome. If you're new to pottery, starting with one of the beginner classes to learn the basics is recommended, then membership gives you space to practice and grow.
+                    </p>
+                </div>
+                <div style="margin-bottom: 2.5rem;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.8rem; color: #2c2c2c;">Can I bring my own clay?</h3>
+                    <p style="color: #666; line-height: 1.8;">
+                        Yes! Members are welcome to bring their own clay. Purchase clay at the studio for your convenience.
+                    </p>
+                </div>
+                <div style="margin-bottom: 2.5rem;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.8rem; color: #2c2c2c;">How does pausing work?</h3>
+                    <p style="color: #666; line-height: 1.8;">
+                        Contact the studio via email or in person to pause your membership for the following month. Memberships can be paused for up to 3 months per year. Your storage space will be held during short pauses.
+                    </p>
+                </div>
+                <div style="margin-bottom: 2.5rem;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.8rem; color: #2c2c2c;">Is there a contract?</h3>
+                    <p style="color: #666; line-height: 1.8;">
+                        No long-term contract required. Membership is month-to-month. The studio requires 30 days notice to cancel.
+                    </p>
+                </div>
+                <div style="margin-bottom: 2.5rem;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 0.8rem; color: #2c2c2c;">Can I take classes as a member?</h3>
+                    <p style="color: #666; line-height: 1.8;">
+                        Absolutely! Members receive 15% off all classes and workshops. It's a great way to learn new techniques and deepen your skills.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="section" style="background: #fafafa; padding: 3rem 2rem;">
+            <div style="max-width: 800px; margin: 0 auto;">
+                <h2 style="font-size: 1.8rem; margin-bottom: 1.5rem; text-align: center; color: #2c2c2c; font-weight: 400;">Membership Subscriptions</h2>
+                <p style="color: #666; line-height: 1.8; margin-bottom: 1rem; text-align: center;">
+                    Studio memberships are non-refundable and non-prorated. Memberships automatically renew on a recurring basis unless canceled before the next billing cycle. Members are responsible for canceling their subscription prior to the upcoming billing date to end their membership.
+                </p>
+                <p style="color: #666; line-height: 1.8; text-align: center;">
+                    Questions about our membership policies?<br>Feel free to reach out at <a href="mailto:clayathannahs@gmail.com" style="color: #2c2c2c; text-decoration: underline;">clayathannahs@gmail.com</a> before signing up.
+                </p>
+            </div>
+        </section>
+    </div>
+<!-- Contact Modal CSS -->
+<style>
+.contact-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.contact-modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 4px;
+    max-width: 500px;
+    position: relative;
+}
+.close-contact-modal {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+.close-contact-modal:hover {
+    color: #2c2c2c;
+}
+.contact-form-group {
+    margin-bottom: 1rem;
+}
+.contact-form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c2c2c;
+    font-weight: 600;
+}
+.contact-form-group input,
+.contact-form-group textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+    font-size: 0.95rem;
+    font-family: inherit;
+}
+.contact-form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+.contact-submit-btn {
+    background-color: #2c2c2c;
+    color: white;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.95rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+.contact-submit-btn:hover {
+    background-color: #444;
+}
+.contact-link {
+    color: #2c2c2c;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 600;
+}
+.contact-link:hover {
+    color: #666;
+}
+</style>
+
+<!-- Contact Modal HTML -->
+<div id="contactModal" class="contact-modal">
+    <div class="contact-modal-content">
+        <span class="close-contact-modal" onclick="closeContactModal()">&times;</span>
+        <h2 style="margin-bottom: 1rem; color: #2c2c2c;">Contact Me</h2>
+        <p style="color: #666; margin-bottom: 1.5rem;">Fill out the form below and she'll get back to you soon!</p>
+        <form id="contactForm" onsubmit="handleContactSubmit(event)">
+            <div class="contact-form-group">
+                <label for="contact_firstName">First Name *</label>
+                <input type="text" id="contact_firstName" name="firstName" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_lastName">Last Name *</label>
+                <input type="text" id="contact_lastName" name="lastName" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_phone">Phone *</label>
+                <input type="tel" id="contact_phone" name="phone" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_email">Email *</label>
+                <input type="email" id="contact_email" name="email" required>
+            </div>
+            <div class="contact-form-group">
+                <label for="contact_message">Message *</label>
+                <textarea id="contact_message" name="message" required placeholder="Tell me what you're interested in..."></textarea>
+            </div>
+            <button type="submit" class="contact-submit-btn">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<!-- Contact Modal JavaScript -->
+<script>
+function openContactModal() {
+    document.getElementById('contactModal').style.display = 'block';
+}
+
+function closeContactModal() {
+    document.getElementById('contactModal').style.display = 'none';
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('contactModal');
+    if (event.target == modal) {
+        closeContactModal();
+    }
+}
+
+function handleContactSubmit(event) {
+    event.preventDefault();
+    const form = event.target;
+    const firstName = form.firstName.value;
+    const lastName = form.lastName.value;
+    const phone = form.phone.value;
+    const email = form.email.value;
+    const message = form.message.value;
+    
+    // Create mailto link with pre-filled information
+    const subject = encodeURIComponent('Contact Form Submission from ' + firstName + ' ' + lastName);
+    const body = encodeURIComponent(
+        'First Name: ' + firstName + '\n' +
+        'Last Name: ' + lastName + '\n' +
+        'Phone: ' + phone + '\n' +
+        'Email: ' + email + '\n\n' +
+        'Message:\n' + message
+    );
+    
+    const mailtoLink = 'mailto:clayathannahs@gmail.com?subject=' + subject + '&body=' + body;
+    
+    // Open user's email client
+    window.location.href = mailtoLink;
+    
+    // Show confirmation
+    alert('Opening your email client... Please send the pre-filled email to complete your inquiry.');
+    
+    // Close modal and reset form
+    closeContactModal();
+    form.reset();
+}
+</script>
+    <footer>
+        <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; padding: 2rem;">
+            <div>
+                <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600; color: white;">LOCATION</h4>
+                <p style="color: white; font-size: 0.9rem; line-height: 1.6;">1255 Coast Blvd<br>San Diego, CA</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600; color: white;">CONTACT</h4>
+                <p style="color: white; font-size: 0.9rem; line-height: 1.6;">
+                    <a href="mailto:clayathannahs@gmail.com" style="color: white; text-decoration: none;">clayathannahs@gmail.com</a>
+                </p>
+                <a href="https://www.instagram.com/clayathannahs" target="_blank" style="display: inline-flex; align-items: center; gap: 0.4rem; color: white; text-decoration: none; font-size: 0.9rem; margin-top: 0.5rem;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" fill="white"/>
+                    </svg>
+                    @clayathannahs
+                </a>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 0.5rem; font-size: 0.9rem; font-weight: 600; color: white;">HOURS</h4>
+                <p style="color: white; font-size: 0.9rem; line-height: 1.6;">Tuesday-Saturday<br>9am-9pm<br><a href="calendar.html" style="color: white; text-decoration: underline;">See calendar for additional hours</a></p>
+            </div>
+        </div>
+        <div style="border-top: 1px solid rgba(255,255,255,0.3); padding: 1.5rem 2rem; text-align: center;">
+            <p style="color: rgba(255,255,255,0.8); font-size: 0.85rem;">&copy; 2026 Clay at Hannah's. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Waitlist Modal -->
+    <div id="waitlistModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeWaitlistModal()">&times;</span>
+            <h2 style="margin-bottom: 1rem; color: #2c2c2c;">Join Studio Membership Waitlist</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">Fill out the form below to join our studio membership waitlist. She'll contact you as soon as a spot becomes available!</p>
+            <form id="waitlistForm" onsubmit="handleWaitlistSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <button type="submit" class="submit-btn">Join Waitlist</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openWaitlistModal() {
+            document.getElementById('waitlistModal').style.display = 'block';
+        }
+
+        function closeWaitlistModal() {
+            document.getElementById('waitlistModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('waitlistModal');
+            if (event.target == modal) {
+                closeWaitlistModal();
+            }
+        }
+
+        function handleWaitlistSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const name = form.name.value;
+            const email = form.email.value;
+            const phone = form.phone.value;
+            
+            // In a real implementation, this would send data to a server
+            console.log('Waitlist submission:', { name, email, phone });
+            
+            // Show success message
+            alert(`Thank you, ${name}! You've been added to the studio membership waitlist. She'll contact you at ${email} when a spot becomes available.`);
+            
+            // Close modal and reset form
+            closeWaitlistModal();
+            form.reset();
+        }
+    </script>
+</body>
+</html>

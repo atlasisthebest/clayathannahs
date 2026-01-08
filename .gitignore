@@ -1,0 +1,10 @@
+# Backup files
+*.backup
+*.bak
+
+# Text files (not needed for website)
+*.txt
+
+# System files
+.DS_Store
+Thumbs.db
