@@ -34,7 +34,7 @@ nav {
     font-size: 1.5rem;
     font-weight: 600;
     letter-spacing: 0.5px;
-    color: #2c2c2c;
+    color: #4E342E;
 }
 
 nav ul {
@@ -44,7 +44,7 @@ nav ul {
 }
 
 nav a {
-    color: #2c2c2c;
+    color: #4E342E;
     text-decoration: none;
     transition: all 0.3s;
     font-size: 0.95rem;
@@ -212,4 +212,150 @@ footer {
 .active {
     color: #8a7968;
     font-weight: 600;
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #4E342E;
+    padding: 0.5rem;
+}
+
+/* Responsive Design - Tablet */
+@media (max-width: 768px) {
+    /* Navigation */
+    .mobile-menu-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        padding: 0.75rem 2rem;
+        border-bottom: 1px solid #e8e8e8;
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 6rem 1.5rem 4rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    /* Container */
+    .container {
+        padding: 2rem 1rem;
+    }
+
+    /* Section Headings */
+    .section h2 {
+        font-size: 2rem;
+    }
+
+    /* Grid */
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Cards */
+    .card {
+        padding: 1.5rem;
+    }
+
+    /* Footer */
+    footer {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 480px) {
+    /* Logo */
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    /* Hero */
+    .hero {
+        padding: 4rem 1rem 3rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    .cta-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* Section Headings */
+    .section h2 {
+        font-size: 1.5rem;
+    }
+
+    .section h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Cards */
+    .card {
+        padding: 1.25rem;
+    }
+
+    .card .price {
+        font-size: 1.2rem;
+    }
+
+    /* Event Items */
+    .event-item {
+        padding: 1.25rem;
+    }
+
+    /* Contact Info */
+    .contact-info {
+        padding: 1.5rem;
+    }
+
+    /* Buttons */
+    .add-to-cart-btn {
+        width: 100%;
+        margin-left: 0 !important;
+        margin-top: 0.5rem;
+    }
 }

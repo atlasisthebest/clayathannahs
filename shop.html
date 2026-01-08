@@ -147,6 +147,7 @@
     <header>
         <nav>
             <div class="logo">Clay at Hannah's</div>
+            <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="membership.html">Membership</a></li>
@@ -320,6 +321,25 @@
             }
 
             alert('Checkout functionality coming soon! Please contact me at clayathannahs@gmail.com or call 847-525-8688 to complete your purchase.');
+        }
+    </script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navMenu = document.querySelector('nav ul');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking on a link
+            const navLinks = document.querySelectorAll('nav ul li a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                });
+            });
         }
     </script>
 </body>
