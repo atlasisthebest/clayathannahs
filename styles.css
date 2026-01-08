@@ -57,8 +57,7 @@ nav a:hover {
 }
 
 .hero {
-    background: linear-gradient(rgba(44, 44, 44, 0.4), rgba(44, 44, 44, 0.4)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23c4b5a0" width="1200" height="600"/></svg>');
+    background: #4E342E;
     background-size: cover;
     background-position: center;
     color: white;
