@@ -502,12 +502,19 @@ function closeContactModal() {
     document.getElementById('contactModal').style.display = 'none';
 }
 
+// Combined click handler for both modals
 window.onclick = function(event) {
-    const modal = document.getElementById('contactModal');
-    if (event.target == modal) {
+    const contactModal = document.getElementById('contactModal');
+    const waitlistModal = document.getElementById('waitlistModal');
+    
+    if (event.target == contactModal) {
         closeContactModal();
     }
+    if (event.target == waitlistModal) {
+        closeWaitlistModal();
+    }
 }
+
 
 function handleContactSubmit(event) {
     event.preventDefault();
@@ -601,12 +608,6 @@ function handleContactSubmit(event) {
             document.getElementById('waitlistModal').style.display = 'none';
         }
 
-        window.onclick = function(event) {
-            const modal = document.getElementById('waitlistModal');
-            if (event.target == modal) {
-                closeWaitlistModal();
-            }
-        }
 
         function handleWaitlistSubmit(event) {
             event.preventDefault();
