@@ -552,6 +552,15 @@ function handleContactSubmit(event) {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
         function addToCart(name, price) {
+            // Check if waiver has been signed
+            const waiverSigned = localStorage.getItem('waiverSigned');
+            if (!waiverSigned) {
+                openWaiverModal();
+                // Store the pending item to add after waiver is signed
+                localStorage.setItem('pendingCartItem', JSON.stringify({ name, price }));
+                return;
+            }
+
             // Check if item already exists in cart
             const existingItem = cart.find(item => item.name === name);
 
@@ -659,5 +668,201 @@ function handleContactSubmit(event) {
         // Update on page load
         updateCartCount();
     </script>
+
+    <!-- Liability Waiver Modal -->
+    <div id="waiverModal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);">
+        <div class="modal-content" style="background-color: rgba(255, 255, 255, 0.8); margin: 5% auto; padding: 2rem; border-radius: 4px; max-width: 700px; max-height: 90vh; overflow-y: auto; position: relative;">
+            <span class="close-modal" onclick="closeWaiverModal()" style="position: absolute; right: 1rem; top: 1rem; font-size: 1.5rem; cursor: pointer; color: #666;">&times;</span>
+            <h2 style="margin-bottom: 1rem; color: #2c2c2c;">Studio Student Liability Waiver & Responsibility Agreement</h2>
+            <div style="color: #666; margin-bottom: 1.5rem; line-height: 1.6; font-size: 0.9rem; max-height: 400px; overflow-y: auto; border: 1px solid #e8e8e8; padding: 1rem; background: #fafafa;">
+                <p style="margin-bottom: 1rem;">This Liability Waiver and Responsibility Agreement ("Agreement") is entered into by the undersigned student ("Student") in favor of the pottery studio, its owner(s), employees, contractors, and representatives (collectively, "Studio"). By signing below, Student agrees to the following terms and conditions for participation in classes, open studio time, workshops, and any presence at the Studio, whether supervised or unsupervised.</p>
+
+                <h3 style="font-size: 1rem; font-weight: 700; color: #2c2c2c; margin: 1rem 0 0.5rem 0;">1. Assumption of Risk</h3>
+                <p style="margin-bottom: 1rem;">Student understands that working in a ceramic and pottery studio involves inherent risks, including but not limited to injury from tools, equipment, kilns, chemicals, dust, slips, cuts, burns, and other hazards. Student voluntarily assumes all risks associated with being present in and using the Studio.</p>
+
+                <h3 style="font-size: 1rem; font-weight: 700; color: #2c2c2c; margin: 1rem 0 0.5rem 0;">2. Responsibility for Conduct, Damage, Loss, or Theft</h3>
+                <p style="margin-bottom: 0.5rem;">Student accepts full responsibility for their conduct while at the Studio and agrees to be financially responsible for any damage, loss, or theft of Studio property, equipment, tools, materials, artwork, fixtures, or the premises caused by the Student, whether intentional or accidental.</p>
+                <p style="margin-bottom: 0.5rem;">This includes, but is not limited to:</p>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li>Damage to Studio building, tools, equipment, kilns, or materials</li>
+                    <li>Loss or theft of Studio property or other students' work</li>
+                    <li>Improper use of equipment or failure to follow Studio rules</li>
+                    <li>Messes requiring excessive cleaning or repair</li>
+                </ul>
+                <p style="margin-bottom: 1rem;">Student agrees to reimburse the Studio for reasonable costs associated with repair, replacement, cleaning, or loss resulting from such actions.</p>
+
+                <h3 style="font-size: 1rem; font-weight: 700; color: #2c2c2c; margin: 1rem 0 0.5rem 0;">3. Guests & Visitors</h3>
+                <p style="margin-bottom: 1rem;">If a guest participates in the Studio under the Student's authorization, the Student (or Parent/Legal Guardian, if applicable) assumes full responsibility for the actions, behavior, damages, loss, theft, or injuries caused by the guest.</p>
+
+                <h3 style="font-size: 1rem; font-weight: 700; color: #2c2c2c; margin: 1rem 0 0.5rem 0;">4. Safety Rules & Restrictions</h3>
+                <p style="margin-bottom: 0.5rem;">Student agrees to follow all posted Studio rules, safety signage, verbal instructions, and written policies at all times.</p>
+                <p style="margin-bottom: 0.5rem;">Unless explicitly authorized and supervised by the Studio owner or staff, Students may NOT:</p>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li>Operate, load, unload, or fire kilns</li>
+                    <li>Mix, handle, or alter glazes, chemicals, or raw materials</li>
+                    <li>Use unfamiliar tools or equipment without instruction</li>
+                    <li>Disable safety systems or bypass safety procedures</li>
+                    <li>Perform repairs, maintenance, or electrical work</li>
+                    <li>Consume alcohol or drugs on the premises</li>
+                    <li>Engage in unsafe, disruptive, or reckless behavior</li>
+                </ul>
+
+                <h3 style="font-size: 1rem; font-weight: 700; color: #2c2c2c; margin: 1rem 0 0.5rem 0;">5. Release & Indemnification</h3>
+                <p style="margin-bottom: 1rem;">Student agrees to release, waive, and hold harmless the Studio from any claims, demands, injuries, damages, losses, or liabilities arising from participation in Studio activities, except in cases of gross negligence or willful misconduct by the Studio. Student further agrees to indemnify and hold harmless the Studio from any claims or damages arising from Student's actions, conduct, or failure to follow Studio policies.</p>
+
+                <h3 style="font-size: 1rem; font-weight: 700; color: #2c2c2c; margin: 1rem 0 0.5rem 0;">6. Acknowledgment & Agreement</h3>
+                <p style="margin-bottom: 1rem;">By signing below, Student acknowledges that they have read, understood, and voluntarily agree to the terms of this Agreement and understand that it is a legally binding document.</p>
+            </div>
+
+            <form id="waiverForm" onsubmit="handleWaiverSubmit(event)">
+                <h3 style="font-size: 1.1rem; margin-bottom: 1rem; color: #2c2c2c;">Student Information</h3>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: #2c2c2c; font-weight: 600;">Student Full Name *</label>
+                    <input type="text" id="waiver_studentName" name="studentName" required style="width: 100%; padding: 0.6rem; border: 1px solid #e8e8e8; border-radius: 2px; font-size: 0.95rem;">
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: #2c2c2c; font-weight: 600;">Age (if under 18)</label>
+                    <input type="number" id="waiver_age" name="age" min="1" max="17" style="width: 100%; padding: 0.6rem; border: 1px solid #e8e8e8; border-radius: 2px; font-size: 0.95rem;">
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: #2c2c2c; font-weight: 600;">Phone *</label>
+                    <input type="tel" id="waiver_phone" name="phone" required style="width: 100%; padding: 0.6rem; border: 1px solid #e8e8e8; border-radius: 2px; font-size: 0.95rem;">
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: #2c2c2c; font-weight: 600;">Email Address *</label>
+                    <input type="email" id="waiver_email" name="email" required style="width: 100%; padding: 0.6rem; border: 1px solid #e8e8e8; border-radius: 2px; font-size: 0.95rem;">
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="display: block; margin-bottom: 0.5rem; color: #2c2c2c; font-weight: 600;">Emergency Contact Name & Phone *</label>
+                    <input type="text" id="waiver_emergency" name="emergency" required placeholder="Name and phone number" style="width: 100%; padding: 0.6rem; border: 1px solid #e8e8e8; border-radius: 2px; font-size: 0.95rem;">
+                </div>
+
+                <div id="guardianSection" style="display: none;">
+                    <h3 style="font-size: 1.1rem; margin: 1.5rem 0 1rem 0; color: #2c2c2c;">Parent / Legal Guardian Consent (Required for Students Under 18)</h3>
+
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: #2c2c2c; font-weight: 600;">Parent / Legal Guardian Name *</label>
+                        <input type="text" id="waiver_guardianName" name="guardianName" style="width: 100%; padding: 0.6rem; border: 1px solid #e8e8e8; border-radius: 2px; font-size: 0.95rem;">
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: #2c2c2c; font-weight: 600;">Guardian Phone *</label>
+                        <input type="tel" id="waiver_guardianPhone" name="guardianPhone" style="width: 100%; padding: 0.6rem; border: 1px solid #e8e8e8; border-radius: 2px; font-size: 0.95rem;">
+                    </div>
+
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; color: #2c2c2c; font-weight: 600;">Guardian Email *</label>
+                        <input type="email" id="waiver_guardianEmail" name="guardianEmail" style="width: 100%; padding: 0.6rem; border: 1px solid #e8e8e8; border-radius: 2px; font-size: 0.95rem;">
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; margin-bottom: 1rem;">
+                    <label style="display: flex; align-items: start; cursor: pointer;">
+                        <input type="checkbox" id="waiver_agreement" name="agreement" required style="width: auto; margin-right: 0.5rem; margin-top: 0.2rem;">
+                        <span>I have read, understood, and agree to the terms of this Liability Waiver & Responsibility Agreement *</span>
+                    </label>
+                </div>
+
+                <button type="submit" style="background-color: #2c2c2c; color: white; padding: 0.8rem 2rem; border: none; border-radius: 2px; cursor: pointer; font-weight: 500; font-size: 0.95rem; width: 100%; margin-top: 1rem;">Sign & Submit Waiver</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Check if age field is filled and show/hide guardian section
+        document.addEventListener('DOMContentLoaded', function() {
+            const ageInput = document.getElementById('waiver_age');
+            if (ageInput) {
+                const guardianSection = document.getElementById('guardianSection');
+                const guardianInputs = guardianSection.querySelectorAll('input');
+
+                ageInput.addEventListener('input', function() {
+                    const age = parseInt(this.value);
+                    if (age > 0 && age < 18) {
+                        guardianSection.style.display = 'block';
+                        guardianInputs.forEach(input => input.required = true);
+                    } else {
+                        guardianSection.style.display = 'none';
+                        guardianInputs.forEach(input => input.required = false);
+                    }
+                });
+            }
+        });
+
+        function openWaiverModal() {
+            document.getElementById('waiverModal').style.display = 'block';
+        }
+
+        function closeWaiverModal() {
+            document.getElementById('waiverModal').style.display = 'none';
+        }
+
+        function handleWaiverSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+
+            const studentName = form.studentName.value;
+            const age = form.age.value;
+            const phone = form.phone.value;
+            const email = form.email.value;
+            const emergency = form.emergency.value;
+            const guardianName = form.guardianName?.value || 'N/A';
+            const guardianPhone = form.guardianPhone?.value || 'N/A';
+            const guardianEmail = form.guardianEmail?.value || 'N/A';
+
+            // Create mailto link with pre-filled information
+            const subject = encodeURIComponent('Liability Waiver - ' + studentName);
+            const body = encodeURIComponent(
+                'STUDIO STUDENT LIABILITY WAIVER & RESPONSIBILITY AGREEMENT\n\n' +
+                'Student Information:\n' +
+                'Full Name: ' + studentName + '\n' +
+                'Age: ' + (age || 'Adult (18+)') + '\n' +
+                'Phone: ' + phone + '\n' +
+                'Email: ' + email + '\n' +
+                'Emergency Contact: ' + emergency + '\n\n' +
+                'Parent/Guardian Information:\n' +
+                'Name: ' + guardianName + '\n' +
+                'Phone: ' + guardianPhone + '\n' +
+                'Email: ' + guardianEmail + '\n\n' +
+                'Agreement: Student has read, understood, and agreed to the terms of the Liability Waiver & Responsibility Agreement.\n\n' +
+                'Date Signed: ' + new Date().toLocaleDateString() + '\n' +
+                'Time Signed: ' + new Date().toLocaleTimeString()
+            );
+
+            const mailtoLink = 'mailto:clayathannahs@gmail.com?subject=' + subject + '&body=' + body;
+
+            // Open user's email client
+            window.location.href = mailtoLink;
+
+            // Mark waiver as signed in localStorage
+            localStorage.setItem('waiverSigned', 'true');
+            localStorage.setItem('waiverData', JSON.stringify({
+                studentName,
+                email,
+                dateSigned: new Date().toISOString()
+            }));
+
+            // Show confirmation
+            alert('Thank you for signing the waiver! Your email client will open with the waiver details. Please send the email to complete the process.');
+
+            // Close modal and reset form
+            closeWaiverModal();
+            form.reset();
+
+            // Check if there's a pending cart item to add
+            const pendingItem = localStorage.getItem('pendingCartItem');
+            if (pendingItem) {
+                const { name, price } = JSON.parse(pendingItem);
+                localStorage.removeItem('pendingCartItem');
+                addToCart(name, price);
+            }
+        }
+    </script>
+
 </body>
 </html>
