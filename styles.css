@@ -212,6 +212,18 @@ footer {
     color: #E0D5C7;
     font-weight: 600;
 }
+#cart-count {
+    background-color: #E0D5C7;
+    color: #4E342E;
+    border-radius: 50%;
+    padding: 0.15rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-left: 0.3rem;
+    display: inline-block;
+    min-width: 1.2rem;
+    text-align: center;
+}
 
 /* Mobile Menu Toggle */
 .mobile-menu-toggle {

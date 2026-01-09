@@ -312,6 +312,7 @@
             cart.splice(index, 1);
             localStorage.setItem('cart', JSON.stringify(cart));
             displayCart();
+            updateCartCount();
         }
 
         function checkout() {
@@ -341,6 +342,29 @@
                 });
             });
         }
+    </script>
+    <script>
+        // Update cart count badge
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let totalItems = 0;
+            cart.forEach(item => {
+                totalItems += item.quantity;
+            });
+            
+            const cartCountElement = document.getElementById('cart-count');
+            if (cartCountElement) {
+                if (totalItems > 0) {
+                    cartCountElement.textContent = totalItems;
+                    cartCountElement.style.display = 'inline-block';
+                } else {
+                    cartCountElement.style.display = 'none';
+                }
+            }
+        }
+        
+        // Update on page load
+        updateCartCount();
     </script>
 </body>
 </html>

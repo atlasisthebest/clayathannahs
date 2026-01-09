@@ -46,8 +46,8 @@
                 <li><a href="workshops.html">Workshops</a></li>
                 <li><a href="events.html" class="active">Community Events</a></li>
                 <li><a href="calendar.html">Calendar</a></li>
-                <li><a href="shop.html">Shop</a></li>
                 <li><a href="about.html">About</a></li>
+                <li><a href="shop.html">Shop <span id="cart-count" style="display:none;"></span></a></li>
             </ul>
         </nav>
     </header>
@@ -345,6 +345,7 @@
             cart.splice(index, 1);
             localStorage.setItem('cart', JSON.stringify(cart));
             displayCart();
+            updateCartCount();
         }
 
         function checkout() {
@@ -355,6 +356,29 @@
 
             alert('Checkout functionality coming soon! Please contact me at clayathannahs@gmail.com or call 847-525-8688 to complete your purchase.');
         }
+    </script>
+    <script>
+        // Update cart count badge
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let totalItems = 0;
+            cart.forEach(item => {
+                totalItems += item.quantity;
+            });
+            
+            const cartCountElement = document.getElementById('cart-count');
+            if (cartCountElement) {
+                if (totalItems > 0) {
+                    cartCountElement.textContent = totalItems;
+                    cartCountElement.style.display = 'inline-block';
+                } else {
+                    cartCountElement.style.display = 'none';
+                }
+            }
+        }
+        
+        // Update on page load
+        updateCartCount();
     </script>
 </body>
 </html>
