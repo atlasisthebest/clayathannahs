@@ -187,6 +187,17 @@
                 <a href="classes.html" style="color: #2c2c2c; font-weight: 600; text-decoration: underline;">View class details and register →</a>
             </p>
         </section>
+        <!-- Quarterly Studio Grant -->
+        <section class="section">
+            <h2 style="margin-bottom: 2rem;">Quarterly Studio Grant</h2>
+            <div style="max-width: 600px; margin: 0 auto;">
+                <div class="card">
+                    <h3>Quarterly Studio Grant</h3>
+                    <p>In an effort to make pottery more accessible to individuals experiencing financial hardship, donations to the grant and sales with 100% proceeds going toward the grant will fully sponsor one student's participation in a four-week wheel-throwing class rotation.</p>
+                    <button onclick="openContributeModal()" style="background-color: #2c2c2c; color: white; padding: 0.8rem 2rem; border: 2px solid #2c2c2c; border-radius: 2px; font-weight: 500; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; margin-top: 1rem;">Contribute</button>
+                </div>
+            </div>
+        </section>
         <!-- Workshops -->
         <section class="section">
             <h2 style="margin-bottom: 2rem;">Workshops</h2>
@@ -491,6 +502,61 @@ function handleContactSubmit(event) {
 
         // Update on page load
         updateCartCount();
+    </script>
+
+    <!-- Contribution Modal -->
+    <div id="contributeModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);">
+        <div style="background-color: rgba(255, 255, 255, 0.8); margin: 10% auto; padding: 2rem; border-radius: 4px; max-width: 400px; position: relative;">
+            <span onclick="closeContributeModal()" style="position: absolute; right: 1rem; top: 1rem; font-size: 1.5rem; cursor: pointer; color: #666;">&times;</span>
+            <h2 style="margin-bottom: 1rem; color: #2c2c2c;">Contribute to Studio Grant</h2>
+            <p style="color: #666; margin-bottom: 1.5rem;">Enter the amount you'd like to contribute. Your donation will help sponsor a student's pottery education.</p>
+            <form id="contributeForm" onsubmit="handleContributeSubmit(event)">
+                <div style="margin-bottom: 1rem;">
+                    <label for="contributeAmount" style="display: block; margin-bottom: 0.5rem; color: #2c2c2c; font-weight: 600;">Contribution Amount *</label>
+                    <div style="position: relative;">
+                        <span style="position: absolute; left: 0.6rem; top: 50%; transform: translateY(-50%); color: #666;">$</span>
+                        <input type="number" id="contributeAmount" name="amount" min="1" step="0.01" required style="width: 100%; padding: 0.6rem 0.6rem 0.6rem 1.5rem; border: 1px solid #e8e8e8; border-radius: 2px; font-size: 0.95rem;">
+                    </div>
+                </div>
+                <button type="submit" style="background-color: #2c2c2c; color: white; padding: 0.8rem 2rem; border: none; border-radius: 2px; cursor: pointer; font-weight: 500; font-size: 0.95rem; width: 100%; margin-top: 1rem;">Add to Cart</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openContributeModal() {
+            document.getElementById('contributeModal').style.display = 'block';
+        }
+
+        function closeContributeModal() {
+            document.getElementById('contributeModal').style.display = 'none';
+            document.getElementById('contributeForm').reset();
+        }
+
+        // Update window.onclick to handle both modals
+        const originalWindowOnclick = window.onclick;
+        window.onclick = function(event) {
+            const contributeModal = document.getElementById('contributeModal');
+            const contactModal = document.getElementById('contactModal');
+            if (event.target == contributeModal) {
+                closeContributeModal();
+            }
+            if (event.target == contactModal) {
+                closeContactModal();
+            }
+        }
+
+        function handleContributeSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const amount = parseFloat(form.amount.value).toFixed(2);
+
+            // Add contribution to cart
+            addToCart(`Studio Grant Contribution`, parseFloat(amount));
+
+            // Close modal and reset form
+            closeContributeModal();
+        }
     </script>
 </body>
 </html>
