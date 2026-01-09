@@ -151,16 +151,31 @@
                     </div>
                 </div>
                 <div style="margin: 1rem 0;">
-                    <span class="detail-label">Available Sessions:</span>
-                    <ul class="schedule-list">
-                        <li>→ Tuesdays, 5:30-8:30 PM</li>
-                        <li>→ Wednesdays, 5:30-8:30 PM</li>
-                        <li>→ Thursdays, 5:30-8:30 PM</li>
-                        <li>→ Saturdays, 9-12 PM</li>
-                        <li>→ Sundays, 9-12 PM</li>
-                    </ul>
+                    <span class="detail-label">Select Your Session: *</span>
+                    <div style="margin-top: 0.8rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                            <input type="radio" name="intro-adult-session" value="Tuesdays, 5:30-8:30 PM" style="margin-right: 0.5rem;">
+                            Tuesdays, 5:30-8:30 PM
+                        </label>
+                        <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                            <input type="radio" name="intro-adult-session" value="Wednesdays, 5:30-8:30 PM" style="margin-right: 0.5rem;">
+                            Wednesdays, 5:30-8:30 PM
+                        </label>
+                        <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                            <input type="radio" name="intro-adult-session" value="Thursdays, 5:30-8:30 PM" style="margin-right: 0.5rem;">
+                            Thursdays, 5:30-8:30 PM
+                        </label>
+                        <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                            <input type="radio" name="intro-adult-session" value="Saturdays, 9-12 PM" style="margin-right: 0.5rem;">
+                            Saturdays, 9-12 PM
+                        </label>
+                        <label style="display: block; margin-bottom: 0.5rem; cursor: pointer;">
+                            <input type="radio" name="intro-adult-session" value="Sundays, 9-12 PM" style="margin-right: 0.5rem;">
+                            Sundays, 9-12 PM
+                        </label>
+                    </div>
                 </div>
-                <button class="add-to-cart-btn" onclick="addToCart('Intro to Wheel-throwing (Adults)', 365)">Add to Cart</button>
+                <button class="add-to-cart-btn" onclick="addToCartWithSession('intro-adult-session', 'Intro to Wheel-throwing (Adults)', 365)">Add to Cart</button>
             </div>
             <div class="class-card">
                 <div class="class-header">
@@ -595,6 +610,22 @@ function handleContactSubmit(event) {
     <script>
         // Initialize cart from localStorage
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function addToCartWithSession(radioGroupName, className, price) {
+            // Check if a session is selected
+            const selectedSession = document.querySelector(`input[name="${radioGroupName}"]:checked`);
+
+            if (!selectedSession) {
+                alert('Please select a session time before adding to cart.');
+                return;
+            }
+
+            // Append session to class name
+            const fullClassName = `${className} - ${selectedSession.value}`;
+
+            // Call regular addToCart with the full name
+            addToCart(fullClassName, price);
+        }
 
         function addToCart(name, price) {
             // Check if waiver has been signed
