@@ -552,14 +552,18 @@ function handleContactSubmit(event) {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
         function addToCart(name, price) {
+            console.log('addToCart called:', name, price);
             // Check if waiver has been signed
             const waiverSigned = localStorage.getItem('waiverSigned');
+            console.log('waiverSigned status:', waiverSigned);
             if (!waiverSigned) {
+                console.log('Opening waiver modal...');
                 openWaiverModal();
                 // Store the pending item to add after waiver is signed
                 localStorage.setItem('pendingCartItem', JSON.stringify({ name, price }));
                 return;
             }
+            console.log('Waiver already signed, adding to cart...');
 
             // Check if item already exists in cart
             const existingItem = cart.find(item => item.name === name);
@@ -795,10 +799,19 @@ function handleContactSubmit(event) {
         });
 
         function openWaiverModal() {
-            document.getElementById('waiverModal').style.display = 'block';
+            console.log('openWaiverModal called');
+            const modal = document.getElementById('waiverModal');
+            console.log('Modal element found:', modal);
+            if (modal) {
+                modal.style.display = 'block';
+                console.log('Modal display set to block');
+            } else {
+                console.error('ERROR: waiverModal element not found!');
+            }
         }
 
         function closeWaiverModal() {
+            console.log('closeWaiverModal called');
             document.getElementById('waiverModal').style.display = 'none';
         }
 

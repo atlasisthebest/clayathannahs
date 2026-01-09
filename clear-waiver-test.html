@@ -2,34 +2,112 @@
 <html>
 <head>
     <title>Clear Waiver - Test Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+        .button {
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            cursor: pointer;
+            background: #2c2c2c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            margin: 0.5rem;
+        }
+        .button:hover {
+            background: #444;
+        }
+        .info-box {
+            background: #f0f0f0;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            border-left: 4px solid #2c2c2c;
+        }
+        .success {
+            color: green;
+            font-weight: bold;
+        }
+        .warning {
+            color: orange;
+            font-weight: bold;
+        }
+        .info {
+            color: blue;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Waiver Test Tool</h1>
-    <p>Click the button below to clear the waiver from your browser's storage, then go back to test the waiver popup.</p>
-    <button onclick="clearWaiver()" style="padding: 1rem 2rem; font-size: 1.2rem; cursor: pointer; background: #2c2c2c; color: white; border: none; border-radius: 4px;">Clear Waiver Status</button>
-    <p id="status" style="margin-top: 1rem; font-weight: bold;"></p>
-    <p style="margin-top: 2rem;"><a href="classes.html">Go to Classes Page</a></p>
+    <h1>🧪 Waiver Test Tool</h1>
+
+    <div class="info-box">
+        <h2>Current Status:</h2>
+        <p id="status"></p>
+        <p><strong>localStorage.waiverSigned:</strong> <span id="waiver-value"></span></p>
+        <p><strong>localStorage.waiverData:</strong> <span id="waiver-data"></span></p>
+        <p><strong>localStorage.pendingCartItem:</strong> <span id="pending-item"></span></p>
+    </div>
+
+    <h2>Actions:</h2>
+    <button class="button" onclick="clearWaiver()">🗑️ Clear Waiver (Test Popup)</button>
+    <button class="button" onclick="checkStatus()">🔄 Refresh Status</button>
+
+    <div class="info-box" style="margin-top: 2rem;">
+        <h3>📋 Instructions:</h3>
+        <ol>
+            <li><strong>Clear the waiver</strong> using the button above</li>
+            <li>Go to <a href="classes.html" target="_blank">Classes Page</a> or <a href="workshops.html" target="_blank">Workshops Page</a></li>
+            <li>Click any "Add to Cart" button</li>
+            <li>The waiver popup should appear</li>
+            <li>If it doesn't appear, open your browser's Console (F12) and look for errors</li>
+        </ol>
+    </div>
+
+    <div style="margin-top: 2rem;">
+        <h3>Quick Links:</h3>
+        <a href="classes.html" class="button" target="_blank">📚 Classes Page</a>
+        <a href="workshops.html" class="button" target="_blank">🎨 Workshops Page</a>
+        <a href="membership.html" class="button" target="_blank">👥 Membership Page</a>
+    </div>
 
     <script>
         function clearWaiver() {
             localStorage.removeItem('waiverSigned');
             localStorage.removeItem('waiverData');
             localStorage.removeItem('pendingCartItem');
-            document.getElementById('status').textContent = 'Waiver cleared! You can now test the waiver popup on the classes page.';
-            document.getElementById('status').style.color = 'green';
+            localStorage.removeItem('cart');
+            alert('✅ Waiver cleared!\n\nNow go to Classes or Workshops page and click "Add to Cart" to test the waiver popup.');
+            checkStatus();
         }
 
-        // Show current status
-        window.onload = function() {
+        function checkStatus() {
             const waiverSigned = localStorage.getItem('waiverSigned');
+            const waiverData = localStorage.getItem('waiverData');
+            const pendingItem = localStorage.getItem('pendingCartItem');
+
+            // Update values
+            document.getElementById('waiver-value').textContent = waiverSigned || 'null';
+            document.getElementById('waiver-data').textContent = waiverData || 'null';
+            document.getElementById('pending-item').textContent = pendingItem || 'null';
+
+            // Update status message
+            const statusEl = document.getElementById('status');
             if (waiverSigned) {
-                document.getElementById('status').textContent = 'Waiver is currently signed in your browser.';
-                document.getElementById('status').style.color = 'orange';
+                statusEl.innerHTML = '<span class="warning">⚠️ WAIVER IS SIGNED</span><br>The popup will NOT appear because the waiver is already signed in your browser.<br>Click "Clear Waiver" to test the popup.';
             } else {
-                document.getElementById('status').textContent = 'Waiver is NOT signed. The popup should appear when adding to cart.';
-                document.getElementById('status').style.color = 'blue';
+                statusEl.innerHTML = '<span class="success">✅ WAIVER IS CLEARED</span><br>The popup SHOULD appear when you click "Add to Cart" on classes or workshops.';
             }
-        };
+        }
+
+        // Show current status on load
+        window.onload = checkStatus;
     </script>
 </body>
 </html>
