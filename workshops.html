@@ -558,6 +558,27 @@ function handleContactSubmit(event) {
         // Initialize cart from localStorage
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+        // Waiver modal functions - MUST be defined before addToCart
+        function openWaiverModal() {
+            console.log('openWaiverModal called');
+            const modal = document.getElementById('waiverModal');
+            console.log('Modal element found:', modal);
+            if (modal) {
+                modal.style.display = 'block';
+                console.log('Modal display set to block');
+            } else {
+                console.error('ERROR: waiverModal element not found!');
+            }
+        }
+
+        function closeWaiverModal() {
+            console.log('closeWaiverModal called');
+            const modal = document.getElementById('waiverModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
         function addToCart(name, price) {
             console.log('addToCart called:', name, price);
             // Check if waiver has been signed
@@ -804,23 +825,6 @@ function handleContactSubmit(event) {
                 });
             }
         });
-
-        function openWaiverModal() {
-            console.log('openWaiverModal called');
-            const modal = document.getElementById('waiverModal');
-            console.log('Modal element found:', modal);
-            if (modal) {
-                modal.style.display = 'block';
-                console.log('Modal display set to block');
-            } else {
-                console.error('ERROR: waiverModal element not found!');
-            }
-        }
-
-        function closeWaiverModal() {
-            console.log('closeWaiverModal called');
-            document.getElementById('waiverModal').style.display = 'none';
-        }
 
         function handleWaiverSubmit(event) {
             event.preventDefault();
