@@ -653,6 +653,9 @@ function handleContactSubmit(event) {
             // Save to localStorage
             localStorage.setItem('cart', JSON.stringify(cart));
 
+            // Update cart count
+            updateCartCount();
+
             // Show feedback
             alert(`${name} added to cart!`);
         }

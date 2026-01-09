@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clear Waiver - Test Tool</title>
+</head>
+<body>
+    <h1>Waiver Test Tool</h1>
+    <p>Click the button below to clear the waiver from your browser's storage, then go back to test the waiver popup.</p>
+    <button onclick="clearWaiver()" style="padding: 1rem 2rem; font-size: 1.2rem; cursor: pointer; background: #2c2c2c; color: white; border: none; border-radius: 4px;">Clear Waiver Status</button>
+    <p id="status" style="margin-top: 1rem; font-weight: bold;"></p>
+    <p style="margin-top: 2rem;"><a href="classes.html">Go to Classes Page</a></p>
+
+    <script>
+        function clearWaiver() {
+            localStorage.removeItem('waiverSigned');
+            localStorage.removeItem('waiverData');
+            localStorage.removeItem('pendingCartItem');
+            document.getElementById('status').textContent = 'Waiver cleared! You can now test the waiver popup on the classes page.';
+            document.getElementById('status').style.color = 'green';
+        }
+
+        // Show current status
+        window.onload = function() {
+            const waiverSigned = localStorage.getItem('waiverSigned');
+            if (waiverSigned) {
+                document.getElementById('status').textContent = 'Waiver is currently signed in your browser.';
+                document.getElementById('status').style.color = 'orange';
+            } else {
+                document.getElementById('status').textContent = 'Waiver is NOT signed. The popup should appear when adding to cart.';
+                document.getElementById('status').style.color = 'blue';
+            }
+        };
+    </script>
+</body>
+</html>
