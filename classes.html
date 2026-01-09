@@ -895,20 +895,120 @@ function handleContactSubmit(event) {
             // Create mailto link with pre-filled information
             const subject = encodeURIComponent('Liability Waiver - ' + studentName);
             const body = encodeURIComponent(
-                'STUDIO STUDENT LIABILITY WAIVER & RESPONSIBILITY AGREEMENT\n\n' +
-                'Student Information:\n' +
-                'Full Name: ' + studentName + '\n' +
-                'Age: ' + (age || 'Adult (18+)') + '\n' +
-                'Phone: ' + phone + '\n' +
-                'Email: ' + email + '\n' +
-                'Emergency Contact: ' + emergency + '\n\n' +
-                'Parent/Guardian Information:\n' +
-                'Name: ' + guardianName + '\n' +
-                'Phone: ' + guardianPhone + '\n' +
-                'Email: ' + guardianEmail + '\n\n' +
-                'Agreement: Student has read, understood, and agreed to the terms of the Liability Waiver & Responsibility Agreement.\n\n' +
-                'Date Signed: ' + new Date().toLocaleDateString() + '\n' +
-                'Time Signed: ' + new Date().toLocaleTimeString()
+                'STUDIO STUDENT LIABILITY WAIVER & RESPONSIBILITY AGREEMENT
+
+' +
+                '=================================================================
+' +
+                'STUDENT INFORMATION
+' +
+                '=================================================================
+' +
+                'Full Name: ' + studentName + '
+' +
+                'Age: ' + (age || 'Adult (18+)') + '
+' +
+                'Phone: ' + phone + '
+' +
+                'Email: ' + email + '
+' +
+                'Emergency Contact: ' + emergency + '
+
+' +
+                'Parent/Guardian Information:
+' +
+                'Name: ' + guardianName + '
+' +
+                'Phone: ' + guardianPhone + '
+' +
+                'Email: ' + guardianEmail + '
+
+' +
+                '=================================================================
+' +
+                'WAIVER TERMS & CONDITIONS
+' +
+                '=================================================================
+
+' +
+                'This Liability Waiver and Responsibility Agreement ("Agreement") is entered into by the undersigned student ("Student") in favor of the pottery studio, its owner(s), employees, contractors, and representatives (collectively, "Studio"). By signing below, Student agrees to the following terms and conditions for participation in classes, open studio time, workshops, and any presence at the Studio, whether supervised or unsupervised.
+
+' +
+                '1. ASSUMPTION OF RISK
+' +
+                'Student understands that working in a ceramic and pottery studio involves inherent risks, including but not limited to injury from tools, equipment, kilns, chemicals, dust, slips, cuts, burns, and other hazards. Student voluntarily assumes all risks associated with being present in and using the Studio.
+
+' +
+                '2. RESPONSIBILITY FOR CONDUCT, DAMAGE, LOSS, OR THEFT
+' +
+                'Student accepts full responsibility for their conduct while at the Studio and agrees to be financially responsible for any damage, loss, or theft of Studio property, equipment, tools, materials, artwork, fixtures, or the premises caused by the Student, whether intentional or accidental.
+
+' +
+                'This includes, but is not limited to:
+' +
+                '- Damage to Studio building, tools, equipment, kilns, or materials
+' +
+                '- Loss or theft of Studio property or other students\' work
+' +
+                '- Improper use of equipment or failure to follow Studio rules
+' +
+                '- Messes requiring excessive cleaning or repair
+
+' +
+                'Student agrees to reimburse the Studio for reasonable costs associated with repair, replacement, cleaning, or loss resulting from such actions.
+
+' +
+                '3. GUESTS & VISITORS
+' +
+                'If a guest participates in the Studio under the Student\'s authorization, the Student (or Parent/Legal Guardian, if applicable) assumes full responsibility for the actions, behavior, damages, loss, theft, or injuries caused by the guest.
+
+' +
+                '4. SAFETY RULES & RESTRICTIONS
+' +
+                'Student agrees to follow all posted Studio rules, safety signage, verbal instructions, and written policies at all times.
+
+' +
+                'Unless explicitly authorized and supervised by the Studio owner or staff, Students may NOT:
+' +
+                '- Operate, load, unload, or fire kilns
+' +
+                '- Mix, handle, or alter glazes, chemicals, or raw materials
+' +
+                '- Use unfamiliar tools or equipment without instruction
+' +
+                '- Disable safety systems or bypass safety procedures
+' +
+                '- Perform repairs, maintenance, or electrical work
+' +
+                '- Consume alcohol or drugs on the premises
+' +
+                '- Engage in unsafe, disruptive, or reckless behavior
+
+' +
+                '5. RELEASE & INDEMNIFICATION
+' +
+                'Student agrees to release, waive, and hold harmless the Studio from any claims, demands, injuries, damages, losses, or liabilities arising from participation in Studio activities, except in cases of gross negligence or willful misconduct by the Studio. Student further agrees to indemnify and hold harmless the Studio from any claims or damages arising from Student\'s actions, conduct, or failure to follow Studio policies.
+
+' +
+                '6. ACKNOWLEDGMENT & AGREEMENT
+' +
+                'By signing below, Student acknowledges that they have read, understood, and voluntarily agree to the terms of this Agreement and understand that it is a legally binding document.
+
+' +
+                '=================================================================
+' +
+                'ELECTRONIC SIGNATURE
+' +
+                '=================================================================
+' +
+                'By submitting this form, the student (and parent/guardian if applicable) electronically signs this agreement and confirms they have read, understood, and agreed to all terms.
+
+' +
+                'Date Signed: ' + new Date().toLocaleDateString() + '
+' +
+                'Time Signed: ' + new Date().toLocaleTimeString() + '
+' +
+                'IP Timestamp: ' + new Date().toISOString()
             );
 
             const mailtoLink = 'mailto:clayathannahs@gmail.com?subject=' + subject + '&body=' + body;

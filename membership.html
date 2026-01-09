@@ -739,7 +739,9 @@ function handleContactSubmit(event) {
             const subject = encodeURIComponent('Liability Waiver - ' + studentName);
             const body = encodeURIComponent(
                 'STUDIO STUDENT LIABILITY WAIVER & RESPONSIBILITY AGREEMENT\n\n' +
-                'Student Information:\n' +
+                '=================================================================\n' +
+                'STUDENT INFORMATION\n' +
+                '=================================================================\n' +
                 'Full Name: ' + studentName + '\n' +
                 'Age: ' + (age || 'Adult (18+)') + '\n' +
                 'Phone: ' + phone + '\n' +
@@ -749,9 +751,43 @@ function handleContactSubmit(event) {
                 'Name: ' + guardianName + '\n' +
                 'Phone: ' + guardianPhone + '\n' +
                 'Email: ' + guardianEmail + '\n\n' +
-                'Agreement: Student has read, understood, and agreed to the terms of the Liability Waiver & Responsibility Agreement.\n\n' +
+                '=================================================================\n' +
+                'WAIVER TERMS & CONDITIONS\n' +
+                '=================================================================\n\n' +
+                'This Liability Waiver and Responsibility Agreement ("Agreement") is entered into by the undersigned student ("Student") in favor of the pottery studio, its owner(s), employees, contractors, and representatives (collectively, "Studio"). By signing below, Student agrees to the following terms and conditions for participation in classes, open studio time, workshops, and any presence at the Studio, whether supervised or unsupervised.\n\n' +
+                '1. ASSUMPTION OF RISK\n' +
+                'Student understands that working in a ceramic and pottery studio involves inherent risks, including but not limited to injury from tools, equipment, kilns, chemicals, dust, slips, cuts, burns, and other hazards. Student voluntarily assumes all risks associated with being present in and using the Studio.\n\n' +
+                '2. RESPONSIBILITY FOR CONDUCT, DAMAGE, LOSS, OR THEFT\n' +
+                'Student accepts full responsibility for their conduct while at the Studio and agrees to be financially responsible for any damage, loss, or theft of Studio property, equipment, tools, materials, artwork, fixtures, or the premises caused by the Student, whether intentional or accidental.\n\n' +
+                'This includes, but is not limited to:\n' +
+                '- Damage to Studio building, tools, equipment, kilns, or materials\n' +
+                '- Loss or theft of Studio property or other students\' work\n' +
+                '- Improper use of equipment or failure to follow Studio rules\n' +
+                '- Messes requiring excessive cleaning or repair\n\n' +
+                'Student agrees to reimburse the Studio for reasonable costs associated with repair, replacement, cleaning, or loss resulting from such actions.\n\n' +
+                '3. GUESTS & VISITORS\n' +
+                'If a guest participates in the Studio under the Student\'s authorization, the Student (or Parent/Legal Guardian, if applicable) assumes full responsibility for the actions, behavior, damages, loss, theft, or injuries caused by the guest.\n\n' +
+                '4. SAFETY RULES & RESTRICTIONS\n' +
+                'Student agrees to follow all posted Studio rules, safety signage, verbal instructions, and written policies at all times.\n\n' +
+                'Unless explicitly authorized and supervised by the Studio owner or staff, Students may NOT:\n' +
+                '- Operate, load, unload, or fire kilns\n' +
+                '- Mix, handle, or alter glazes, chemicals, or raw materials\n' +
+                '- Use unfamiliar tools or equipment without instruction\n' +
+                '- Disable safety systems or bypass safety procedures\n' +
+                '- Perform repairs, maintenance, or electrical work\n' +
+                '- Consume alcohol or drugs on the premises\n' +
+                '- Engage in unsafe, disruptive, or reckless behavior\n\n' +
+                '5. RELEASE & INDEMNIFICATION\n' +
+                'Student agrees to release, waive, and hold harmless the Studio from any claims, demands, injuries, damages, losses, or liabilities arising from participation in Studio activities, except in cases of gross negligence or willful misconduct by the Studio. Student further agrees to indemnify and hold harmless the Studio from any claims or damages arising from Student\'s actions, conduct, or failure to follow Studio policies.\n\n' +
+                '6. ACKNOWLEDGMENT & AGREEMENT\n' +
+                'By signing below, Student acknowledges that they have read, understood, and voluntarily agree to the terms of this Agreement and understand that it is a legally binding document.\n\n' +
+                '=================================================================\n' +
+                'ELECTRONIC SIGNATURE\n' +
+                '=================================================================\n' +
+                'By submitting this form, the student (and parent/guardian if applicable) electronically signs this agreement and confirms they have read, understood, and agreed to all terms.\n\n' +
                 'Date Signed: ' + new Date().toLocaleDateString() + '\n' +
-                'Time Signed: ' + new Date().toLocaleTimeString()
+                'Time Signed: ' + new Date().toLocaleTimeString() + '\n' +
+                'IP Timestamp: ' + new Date().toISOString()
             );
 
             const mailtoLink = 'mailto:clayathannahs@gmail.com?subject=' + subject + '&body=' + body;
