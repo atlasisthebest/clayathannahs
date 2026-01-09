@@ -67,6 +67,11 @@
             </div>
         </section>
         <section class="section">
+            <div id="waiverBanner" style="display: none; text-align: center; background: #4E342E; color: white; padding: 1rem; margin-bottom: 1.5rem; border-radius: 4px;">
+                <p style="margin: 0 0 0.5rem 0; font-size: 1rem;">📋 You have a pending item waiting! Please complete the liability waiver to continue.</p>
+                <button onclick="markWaiverComplete()" style="background: white; color: #4E342E; padding: 0.6rem 1.5rem; border: none; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 0.95rem; margin-right: 0.5rem;">I've Completed the Waiver</button>
+                <button onclick="openWaiverForm()" style="background: transparent; color: white; padding: 0.6rem 1.5rem; border: 2px solid white; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 0.95rem;">Open Waiver Form Again</button>
+            </div>
             <h3 style="text-align: center;">Upcoming Events</h3>
             <div class="event-item studio-opening">
                 <div class="event-date">TBD</div>
@@ -80,12 +85,15 @@
                 <h3>Tool Tour with DiamondCore Tools</h3>
                 <p>Explore the innovative DiamondCore Tools and learn how to use them to enhance your pottery work. Hands-on demonstrations and techniques included.</p>
                 <p><strong>$25 for members • $50 for non-members</strong></p>
+                <button class="add-to-cart-btn" onclick="addToCart('Tool Tour with DiamondCore Tools (Member)', 25)" style="background-color: #2c2c2c; color: white; padding: 0.8rem 2rem; border: 2px solid #2c2c2c; border-radius: 2px; font-weight: 500; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; margin-top: 1rem; margin-right: 0.5rem;">Add to Cart (Member $25)</button>
+                <button class="add-to-cart-btn" onclick="addToCart('Tool Tour with DiamondCore Tools (Non-Member)', 50)" style="background-color: #2c2c2c; color: white; padding: 0.8rem 2rem; border: 2px solid #2c2c2c; border-radius: 2px; font-weight: 500; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; margin-top: 1rem;">Add to Cart (Non-Member $50)</button>
             </div>
             <div class="event-item">
                 <div class="event-date">TBD</div>
                 <h3>Potter's Social Hour</h3>
                 <p>Join pottery enthusiasts for a cozy night of clay conversation, tool talk, and community building.</p>
                 <p><strong>Free for members • $10 for non-members</strong></p>
+                <button class="add-to-cart-btn" onclick="addToCart('Potter\'s Social Hour (Non-Member)', 10)" style="background-color: #2c2c2c; color: white; padding: 0.8rem 2rem; border: 2px solid #2c2c2c; border-radius: 2px; font-weight: 500; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; margin-top: 1rem;">Add to Cart (Non-Member $10)</button>
             </div>
             <div class="event-item">
                 <div class="event-date">Saturday, December 19, 2026 • 10:00 AM - 5:00 PM</div>
@@ -104,6 +112,7 @@
                 <h3>Empty Bowls</h3>
                 <p>Join me for our annual Empty Bowls event featuring food vendors and handmade ceramic bowls to support our community.</p>
                 <p><strong>Cost:</strong> $10</p>
+                <button class="add-to-cart-btn" onclick="addToCart('Empty Bowls', 10)" style="background-color: #2c2c2c; color: white; padding: 0.8rem 2rem; border: 2px solid #2c2c2c; border-radius: 2px; font-weight: 500; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; margin-top: 1rem;">Add to Cart</button>
             </div>
             <div class="event-item">
                 <div class="event-date">Saturday, December 26, 2026</div>
@@ -119,11 +128,13 @@
                     <h3>Quarterly Clay Testing</h3>
                     <p>Experiment with different clay bodies and share results with the community. Make up to 10 test tiles from local clays—these will be fired and ready for your own glaze testing.</p>
                     <p class="price">Free for members • $15 for non-members</p>
+                    <button class="add-to-cart-btn" onclick="addToCart('Quarterly Clay Testing (Non-Member)', 15)" style="background-color: #2c2c2c; color: white; padding: 0.8rem 2rem; border: 2px solid #2c2c2c; border-radius: 2px; font-weight: 500; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; margin-top: 1rem;">Add to Cart (Non-Member $15)</button>
                 </div>
                 <div class="card">
                     <h3>Quarterly Glaze Testing</h3>
                     <p>Experiment with new glazes, share results, and expand your knowledge of surface decoration. Glaze up to 10 test tiles or 1 kiln god.</p>
                     <p class="price">Free for members • $20 for non-members</p>
+                    <button class="add-to-cart-btn" onclick="addToCart('Quarterly Glaze Testing (Non-Member)', 20)" style="background-color: #2c2c2c; color: white; padding: 0.8rem 2rem; border: 2px solid #2c2c2c; border-radius: 2px; font-weight: 500; font-size: 0.95rem; cursor: pointer; transition: all 0.3s; margin-top: 1rem;">Add to Cart (Non-Member $20)</button>
                 </div>
                 <div class="card">
                     <h3>Quarterly Studio Grant</h3>
@@ -279,7 +290,40 @@
         // Initialize cart from localStorage
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+        // Waiver form URL - Google Form
+        const WAIVER_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfm7SZXQx94nBa0Sys3NPD61KPdGtNDepdpt86yx2cAsYjUKw/viewform?usp=header';
+
+        function openWaiverForm() {
+            window.open(WAIVER_FORM_URL, '_blank');
+            alert('Please complete the liability waiver form in the new tab.\n\nOnce submitted, click the "I\'ve Completed the Waiver" button at the top of this page to continue adding items to your cart.');
+        }
+
+        function markWaiverComplete() {
+            localStorage.setItem('waiverSigned', 'true');
+            localStorage.setItem('waiverData', JSON.stringify({
+                dateSigned: new Date().toISOString()
+            }));
+
+            const pendingItem = localStorage.getItem('pendingCartItem');
+            if (pendingItem) {
+                const item = JSON.parse(pendingItem);
+                addToCart(item.name, item.price);
+                localStorage.removeItem('pendingCartItem');
+            }
+
+            alert('Thank you! Your waiver has been marked as complete. You can now add items to your cart.');
+            location.reload();
+        }
+
         function addToCart(name, price) {
+            // Check if waiver has been signed
+            const waiverSigned = localStorage.getItem('waiverSigned');
+            if (!waiverSigned) {
+                localStorage.setItem('pendingCartItem', JSON.stringify({ name, price }));
+                openWaiverForm();
+                return;
+            }
+
             // Check if item already exists in cart
             const existingItem = cart.find(item => item.name === name);
 
@@ -370,8 +414,20 @@
             }
         }
         
+        // Check for pending cart items and show banner
+        function checkPendingWaiver() {
+            const pendingItem = localStorage.getItem('pendingCartItem');
+            const waiverSigned = localStorage.getItem('waiverSigned');
+            const banner = document.getElementById('waiverBanner');
+
+            if (pendingItem && !waiverSigned && banner) {
+                banner.style.display = 'block';
+            }
+        }
+
         // Update on page load
         updateCartCount();
+        checkPendingWaiver();
     </script>
 </body>
 </html>
