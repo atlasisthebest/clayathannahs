@@ -307,6 +307,40 @@ footer {
     footer {
         padding: 2rem 1rem;
     }
+
+    /* Calendar Schedule */
+    .schedule-grid {
+        overflow-x: auto;
+    }
+    
+    .day-cell {
+        min-width: 120px;
+    }
+    
+    /* Modals */
+    .modal-content,
+    .contact-modal-content {
+        margin: 5% 1rem;
+        padding: 1.5rem;
+        max-width: calc(100% - 2rem);
+    }
+    
+    /* Two-column layouts */
+    div[style*='grid-template-columns: 1fr 1fr'] {
+        grid-template-columns: 1fr !important;
+    }
+    
+    /* Footer */
+    footer p {
+        font-size: 0.85rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    /* Map */
+    iframe[src*='google.com/maps'] {
+        height: 300px !important;
+    }
+
 }
 
 /* Responsive Design - Mobile */
@@ -369,4 +403,44 @@ footer {
         margin-left: 0 !important;
         margin-top: 0.5rem;
     }
+
+    /* Calendar */
+    .schedule-time {
+        font-size: 0.8rem;
+    }
+    
+    .day-cell {
+        min-width: 100px;
+        font-size: 0.85rem;
+    }
+    
+    /* Modals */
+    .modal-content,
+    .contact-modal-content {
+        margin: 2% 0.5rem;
+        padding: 1rem;
+    }
+    
+    .close-modal,
+    .close-contact-modal {
+        font-size: 1.2rem;
+        right: 0.5rem;
+        top: 0.5rem;
+    }
+    
+    /* Footer */
+    footer p {
+        font-size: 0.75rem !important;
+    }
+    
+    /* Map */
+    iframe[src*='google.com/maps'] {
+        height: 250px !important;
+    }
+    
+    /* Text sizes */
+    p[style*='font-size: 1.1rem'] {
+        font-size: 1rem !important;
+    }
+
 }
